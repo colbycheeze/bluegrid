@@ -1,0 +1,223 @@
+// Grid variables
+$num-cols: 12 !default;
+$gutter-width: 1rem !default;
+
+// Layout helpers
+$container-max-width: 1280px !default;
+$section-padding: 1rem !default;
+
+// Media Query Ranges
+$small-screen: 600px !default;
+$medium-screen: 960px !default;
+$large-screen: 1140px !default;
+$small-and-up: "only screen and (min-width : #{$small-screen})" !default;
+$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
+$large-and-up: "only screen and (min-width : #{$large-screen})" !default;
+
+@mixin grid-prefixes($size) {
+  .start#{$size} {
+    justify-content: flex-start;
+  }
+  .center#{$size} {
+    justify-content: center;
+  }
+  .end#{$size} {
+    justify-content: flex-end;
+  }
+  .top#{$size} {
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  .middle#{$size} {
+    align-content: center;
+    align-items: center;
+  }
+  .bottom#{$size} {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+  .around#{$size} {
+    justify-content: space-around;
+  }
+  .between#{$size} {
+    justify-content: space-between;
+  }
+  .first#{$size} {
+    order: -1;
+  }
+  .last#{$size} {
+    order: 1;
+  }
+}
+
+@include grid-prefixes("");
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+  width: 95%;
+  max-width: $container-max-width;
+}
+
+@media #{$small-and-up} {
+  @include grid-prefixes("-s");
+  .container { width: 90%; }
+}
+@media #{$medium-and-up} {
+  @include grid-prefixes("-m");
+  .container { width: 85%; }
+}
+@media #{$large-and-up} {
+  @include grid-prefixes("-l");
+}
+
+.section {
+  padding: $section-padding 0;
+
+  &.no-pad-bot {
+    padding-bottom: 0;
+  }
+  &.no-pad-top {
+    padding-top: 0;
+  }
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // Fix for grid edges
+  // http://csswizardry.com/2011/08/building-better-grid-systems/
+  margin-right: ($gutter-width / 2) * -1;
+  margin-left: ($gutter-width / 2) * -1;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.col {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  padding: 0 ($gutter-width / 2);
+
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+
+  &.grow {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+
+  $i: 1;
+  @while $i <= $num-cols {
+    $perc: unquote((100 / ($num-cols / $i)) + "%");
+    &.x#{$i} {
+      width: $perc;
+      flex-basis: $perc;
+      max-width: $perc;
+    }
+    $i: $i + 1;
+  }
+
+  $i: 1;
+  @while $i <= $num-cols {
+    $perc: unquote((100 / ($num-cols / $i)) + "%");
+    &.offset-#{$i} {
+      margin-left: $perc;
+    }
+    $i: $i + 1;
+  }
+
+  @media #{$small-and-up} {
+    &.grow-s {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.s#{$i} {
+        width: $perc;
+        flex-basis: $perc;
+        max-width: $perc;
+      }
+      $i: $i + 1;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.offset-s#{$i} {
+        margin-left: $perc;
+      }
+      $i: $i + 1;
+    }
+  }
+
+  @media #{$medium-and-up} {
+    &.grow-m {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.m#{$i} {
+        flex-basis: $perc;
+        max-width: $perc;
+      }
+      $i: $i + 1;
+    }
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.offset-m#{$i} {
+        margin-left: $perc;
+      }
+      $i: $i + 1;
+    }
+  }
+
+  @media #{$large-and-up} {
+    &.grow-l {
+      flex-grow: 1;
+      max-width: 100%;
+    }
+
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.l#{$i} {
+        flex-basis: $perc;
+        max-width: $perc;
+      }
+      $i: $i + 1;
+    }
+    $i: 1;
+    @while $i <= $num-cols {
+      $perc: unquote((100 / ($num-cols / $i)) + "%");
+      &.offset-l#{$i} {
+        margin-left: $perc;
+      }
+      $i: $i + 1;
+    }
+  }
+}
+

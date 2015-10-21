@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>Blue Grid Examples</title>
+
+<script type="text/javascript" src=""></script>
+
+<link rel="stylesheet" type="text/css" href="main.css" >
+</head>
+<body>
+
+
+
+
+<section id="hero" class="row">
+    <div class="col">
+      <h1>Welcome to Blue Grid!</h1>
+      <h2>A simple, responsive, and customizable grid based on the <span class="flex">flex</span> property</h2>
+    </div>
+  </section>
+
+  <section id="examples" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Fluid and Responive</h1>
+          <h3>By default, columns will grow to full grid width and stack. Use responsive indicators to size into columns on various screen sizes.</h3>
+        </div>
+
+        <div class="col"> <p>.col</p> </div>
+        <div class="col spacing"> <p>.col</p> </div>
+
+        <div class="col x5"> <p>.col x5</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x3 spacing"> <p>.col x3</p> </div>
+
+        <div class="col s6"> <p>.col s6</p> </div>
+        <div class="col s6 spacing"> <p>.col s6</p> </div>
+
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4 spacing"> <p>.col m4</p> </div>
+
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3 spacing"> <p>.col l3</p> </div>
+      </div>
+
+      <div class="row">
+          <h1>Simple lightweight syntax</h1>
+          <h3>Just wrap your grid with row and then add col to each child. Size
+            columns by adding a screen size followed by a number.
+            Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
+
+          <pre class="col language-markup"><code class=" language-markup"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> Full Width column <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col x6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on all screen sizes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col s6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on small and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col m6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on medium and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col l6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on large and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> </code></pre>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1>Nesting</h1>
+          <h3>Go as deep as you like, it isn't a problem!</h3>
+        </div>
+
+        <div class="col m8">
+          <div class="base-nest">
+            <div class="row">
+
+              <div class="col x9">
+                <div class="parent-nest">
+                  <div class="row">
+                    <div class="col x4"><p>Whoa.</p> </div>
+                    <div class="col x8"><p>That's Deep!</p> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col x3"><p>Hello!</p></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col m4"><p>.col m4</p></div>
+      </div>
+
+
+      <h1>Offsets</h1>
+      <h3>Easy Peasy Lemon Squeasy</h3>
+
+      <div class="row outline">
+        <div class="col x4 offset-1"><p>.col x4 offset-1</p></div>
+        <div class="col x4 offset-1 spacing"><p>.col x4 offset-1</p></div>
+        <div class="col x6 spacing"><p>.col x6</p></div>
+        <div class="col x3 offset-m6 spacing"><p>.col x3 offset-m6</p></div>
+        <div class="col x3 offset-l7 spacing"><p>.col x3 offset-l7</p></div>
+      </div>
+
+      <h1>Negative Margins</h1>
+      <h3>The columns will align properly to content outside of the grid</h3>
+      <div class="box"><p> I am an element that lives outside of the grid.  </p></div>
+
+      <div class="row outline">
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+      </div>
+
+      <h1>Column Spacing</h1>
+      <h3>Utilize Flexbox's powerful content spacing for your columns.</h3>
+
+      <div class="row-label">.row center</div>
+      <div class="row center outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2 test"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row end</div>
+      <div class="row end outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row around</div>
+      <div class="row around outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row between</div>
+      <div class="row between outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+
+      <h1>Column Positioning</h1>
+      <h3>One of the biggest pains with layouts is made simple with Blue Grid.
+        Add top, middle, or bottom to your row element</h3>
+      <p class="row-label">.row top</p>
+      <div class="row top center">
+        <div class="col x6 l4 last">
+          <img src="img/fantasy_scene.jpg" alt="">
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <p class="row-label">.row middle</p>
+      <div class="row middle center">
+        <div class="col x6 l4">
+          <img src="img/trex-boxing.jpg" alt="">
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <p class="row-label">.row bottom</p>
+      <div class="row bottom center">
+        <div class="col x6 l4 last">
+          <img src="img/nyan-cat.png" alt="">
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <h1>Column Reordering</h1>
+      <h3>Need to quickly re-order columns? Just add the appropirate helper class.</h3>
+      <div class="row-label">.row reverse</div>
+      <div class="row reverse">
+        <div class="col x2"> <p>Col 1</p> </div>
+        <div class="col x2"> <p>Col 2</p> </div>
+        <div class="col x2"> <p>Col 3</p> </div>
+        <div class="col x2"> <p>Col 4</p> </div>
+        <div class="col x2"> <p>Col 5</p> </div>
+        <div class="col x2"> <p>Col 6</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col x3 center"> <p>1</p> </div>
+        <div class="col x3 center"> <p>2</p> </div>
+        <div class="col x3 center"> <p>3</p> </div>
+        <div class="col x3 first center"> <p>4   .first</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col x3 last center"> <p>1   .last</p> </div>
+        <div class="col x3 center"> <p>2</p> </div>
+        <div class="col x3 center"> <p>3</p> </div>
+        <div class="col x3 center"> <p>4</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1>Customizable</h1>
+          <h3>Blue Grid is built in Sass, so feel free to override it's variables to fit the needs of your project!</h3>
+          <pre class=" language-scss"><code class=" language-scss">
+<span class="token comment" spellcheck="true">// Grid variables</span>
+<span class="token variable">$num-cols</span><span class="token punctuation">:</span> 12 <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$gutter-width</span><span class="token punctuation">:</span> 1rem <span class="token statement">!default</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Layout helpers</span>
+<span class="token variable">$container-max-width</span><span class="token punctuation">:</span> 1280px <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$section-padding</span><span class="token punctuation">:</span> 1rem <span class="token statement">!default</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Media Query Ranges</span>
+<span class="token variable">$small-screen</span><span class="token punctuation">:</span> 600px <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$medium-screen</span><span class="token punctuation">:</span> 960px <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$large-screen</span><span class="token punctuation">:</span> 1140px <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$small-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$small-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$medium-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$medium-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
+<span class="token variable">$large-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$large-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    </div>
+  </section>
+</body>
+</html>
