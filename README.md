@@ -8,3 +8,8 @@
 2. add `@import bluegrid.scss` to your main sass file.
 3. ??
 4. Profit.
+
+## Todo
+ - add mixins for more "semantic" use.
+ - create minified / auto-prefixed version for easy inclusion via CDN?
+ - add to a Meteor and/or Gulp package?
