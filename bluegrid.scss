@@ -64,7 +64,6 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   margin-left: auto;
   padding-right: $gutter-width;
   padding-left: $gutter-width;
-  width: 95%;
   max-width: $container-max-width;
 }
 
@@ -117,9 +116,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
     flex-direction: column-reverse;
   }
 
-  &.grow {
-    flex-grow: 1;
-    flex-basis: 0;
+  &.fit {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
     max-width: 100%;
   }
 
@@ -144,9 +144,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$small-and-up} {
-    &.grow-s {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-s {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -171,9 +172,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$medium-and-up} {
-    &.grow-m {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-m {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -196,9 +198,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$large-and-up} {
-    &.grow-l {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-l {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -220,4 +223,3 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
     }
   }
 }
-
