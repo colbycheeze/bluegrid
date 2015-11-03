@@ -93,7 +93,7 @@ gulp.task('build', ['clean', 'compile']);
 //
 gulp.task('deploy', () => {
   return gulp.src(`${dir.dest}/**/*`)
-    .pipe($.ghPages());
+    .pipe($.ghPages({force:true}));
 });
 
 // gulp.task('dev', function(callback) {
