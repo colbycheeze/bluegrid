@@ -1,6 +1,8 @@
 @import 'reset';
 @import 'grid';
 @import 'typography';
+@import 'grid-tests';
+@import 'prism';
 
 #hero {
   padding-top: $base-spacing * 2;
@@ -70,6 +72,16 @@
 
   .row.outline {
     border: 1px dashed black;
+  }
+
+  .medium-box {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+  }
+
+  .tomato {
+    background: tomato;
   }
 
 }

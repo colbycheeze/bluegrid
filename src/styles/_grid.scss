@@ -59,13 +59,30 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   padding-left: $gutter-width;
 }
 
+@mixin container-fluid() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter-width;
+  padding-left: $gutter-width;
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;
   padding-right: $gutter-width;
   padding-left: $gutter-width;
-  width: 95%;
   max-width: $container-max-width;
+}
+
+@mixin container($max-width: $container-max-width, $gutter: $gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  max-width: $max-width;
+
+  @media #{$small-and-up} { width: 90%; }
+  @media #{$medium-and-up} { width: 85%; }
 }
 
 @media #{$small-and-up} {
@@ -108,6 +125,17 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 }
 
+@mixin row() {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-right: ($gutter-width / 2) * -1;
+  margin-left: ($gutter-width / 2) * -1;
+}
+
 .col {
   box-sizing: border-box;
   flex: 0 0 100%;
@@ -117,9 +145,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
     flex-direction: column-reverse;
   }
 
-  &.grow {
-    flex-grow: 1;
-    flex-basis: 0;
+  &.fit {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
     max-width: 100%;
   }
 
@@ -144,9 +173,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$small-and-up} {
-    &.grow-s {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-s {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -171,9 +201,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$medium-and-up} {
-    &.grow-m {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-m {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -196,9 +227,10 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
   }
 
   @media #{$large-and-up} {
-    &.grow-l {
-      flex-grow: 1;
-      max-width: 100%;
+    &.fit-l {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
     }
 
     $i: 1;
@@ -220,4 +252,3 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
     }
   }
 }
-
