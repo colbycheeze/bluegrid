@@ -2,9 +2,10 @@
   <title>Blue Grid Examples</title>
 
   <meta charset="utf-8">
-  <meta name="description" content="Blue Grid - A simple, customizable,
-  responsive grid based on the flex property">
+  <meta name="description" content="Blue Grid - A simple, customizable, responsive grid based on the flex property">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, minimal-ui, maximum-scale=1, minimum-scale=1" />
+<link rel="stylesheet" href="css/main.css">
+<script src="js/prism.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,17 @@
             columns by adding a screen size followed by a number.
             Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
 
-          <pre class="col"><code class="language-markup"> {{syntaxExample}} </code></pre>
+          <pre class="col"><code class="language-markup">
+&lt;div class="container"&gt;<br />
+  &lt;div class="row"&gt;<br />
+    &lt;div class="col"&gt; Full Width column &lt;/div&gt;<br />
+    &lt;div class="col x6"&gt;6 columns on all screen sizes&lt;/div&gt;<br />
+    &lt;div class="col s6"&gt;6 columns on small and up&lt;/div&gt;<br />
+    &lt;div class="col m6"&gt;6 columns on medium and up&lt;/div&gt;<br />
+    &lt;div class="col l6"&gt;6 columns on large and up&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+          </code></pre>
       </div>
 
       <div class="row">
@@ -138,7 +149,7 @@
       <p class="row-label">.row top</p>
       <div class="row top center">
         <div class="col x6 l4 last">
-          <img src="img/fantasy_scene.jpg" alt="" />
+          <img src="assets/images/fantasy_scene.jpg" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -146,7 +157,7 @@
       <p class="row-label">.row middle</p>
       <div class="row middle center">
         <div class="col x6 l4">
-          <img src="img/trex-boxing.jpg" alt="" />
+          <img src="assets/images/trex-boxing.jpg" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -154,7 +165,7 @@
       <p class="row-label">.row bottom</p>
       <div class="row bottom center">
         <div class="col x6 l4 last">
-          <img src="img/nyan-cat.png" alt="" />
+          <img src="assets/images/nyan-cat.png" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -210,8 +221,50 @@ $large-and-up: "only screen and (min-width : #{$large-screen})" !default;
       </div>
     </div>
 
-    <div class="container">
+
+    <div class="new-stuff">
+      <div class="rooow">
+        <div class="col">
+          <h1>Fluid and Responive</h1>
+          <h3>By default, columns will grow to full grid width and stack. Use responsive indicators to size into columns on various screen sizes.</h3>
+        </div>
+
+        <div class="col"> <p>.col</p> </div>
+        <div class="col spacing"> <p>.col</p> </div>
+
+        <div class="col x5"> <p>.col x5</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x3 spacing"> <p>.col x3</p> </div>
+
+        <div class="col s6"> <p>.col s6</p> </div>
+        <div class="col s6 spacing"> <p>.col s6</p> </div>
+
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4 spacing"> <p>.col m4</p> </div>
+
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3 spacing"> <p>.col l3</p> </div>
+      </div>
+
+      <div class="row end">
+        <div class="col fit">
+          <div class="medium-box">
+            I'm a box.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col tomato">
+          <div class="medium-box">
+
+          </div>
+        </div>
+      </div>
     </div>
+
   </section>
 
 </body>
