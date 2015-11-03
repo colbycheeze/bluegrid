@@ -1,17 +1,15 @@
-<html>
 <head>
-<title>Blue Grid Examples</title>
+  <title>Blue Grid Examples</title>
 
-<script type="text/javascript" src=""></script>
-
-<link rel="stylesheet" type="text/css" href="main.css" >
+  <meta charset="utf-8">
+  <meta name="description" content="Blue Grid - A simple, customizable, responsive grid based on the flex property">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, minimal-ui, maximum-scale=1, minimum-scale=1" />
+<link rel="stylesheet" href="css/main.css">
+<script src="js/prism.js"></script>
 </head>
+
 <body>
-
-
-
-
-<section id="hero" class="row">
+  <section id="hero" class="row">
     <div class="col">
       <h1>Welcome to Blue Grid!</h1>
       <h2>A simple, responsive, and customizable grid based on the <span class="flex">flex</span> property</h2>
@@ -52,15 +50,17 @@
             columns by adding a screen size followed by a number.
             Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
 
-          <pre class="col language-markup"><code class=" language-markup"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> Full Width column <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col x6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on all screen sizes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col s6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on small and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col m6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on medium and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col l6<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>6 columns on large and up<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> </code></pre>
+          <pre class="col"><code class="language-markup">
+&lt;div class="container"&gt;<br />
+  &lt;div class="row"&gt;<br />
+    &lt;div class="col"&gt; Full Width column &lt;/div&gt;<br />
+    &lt;div class="col x6"&gt;6 columns on all screen sizes&lt;/div&gt;<br />
+    &lt;div class="col s6"&gt;6 columns on small and up&lt;/div&gt;<br />
+    &lt;div class="col m6"&gt;6 columns on medium and up&lt;/div&gt;<br />
+    &lt;div class="col l6"&gt;6 columns on large and up&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+          </code></pre>
       </div>
 
       <div class="row">
@@ -149,7 +149,7 @@
       <p class="row-label">.row top</p>
       <div class="row top center">
         <div class="col x6 l4 last">
-          <img src="img/fantasy_scene.jpg" alt="">
+          <img src="assets/images/fantasy_scene.jpg" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -157,7 +157,7 @@
       <p class="row-label">.row middle</p>
       <div class="row middle center">
         <div class="col x6 l4">
-          <img src="img/trex-boxing.jpg" alt="">
+          <img src="assets/images/trex-boxing.jpg" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -165,7 +165,7 @@
       <p class="row-label">.row bottom</p>
       <div class="row bottom center">
         <div class="col x6 l4 last">
-          <img src="img/nyan-cat.png" alt="">
+          <img src="assets/images/nyan-cat.png" alt="" />
         </div>
         <div class="col x6 l4"><p>.col x6 l4</p> </div>
       </div>
@@ -200,29 +200,72 @@
         <div class="col">
           <h1>Customizable</h1>
           <h3>Blue Grid is built in Sass, so feel free to override it's variables to fit the needs of your project!</h3>
-          <pre class=" language-scss"><code class=" language-scss">
-<span class="token comment" spellcheck="true">// Grid variables</span>
-<span class="token variable">$num-cols</span><span class="token punctuation">:</span> 12 <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$gutter-width</span><span class="token punctuation">:</span> 1rem <span class="token statement">!default</span><span class="token punctuation">;</span>
+          <pre><code class="language-scss">
+// Grid variables
+$num-cols: 12 !default;
+$gutter-width: 1rem !default;
 
-<span class="token comment" spellcheck="true">// Layout helpers</span>
-<span class="token variable">$container-max-width</span><span class="token punctuation">:</span> 1280px <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$section-padding</span><span class="token punctuation">:</span> 1rem <span class="token statement">!default</span><span class="token punctuation">;</span>
+// Layout helpers
+$container-max-width: 1280px !default;
+$section-padding: 1rem !default;
 
-<span class="token comment" spellcheck="true">// Media Query Ranges</span>
-<span class="token variable">$small-screen</span><span class="token punctuation">:</span> 600px <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$medium-screen</span><span class="token punctuation">:</span> 960px <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$large-screen</span><span class="token punctuation">:</span> 1140px <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$small-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$small-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$medium-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$medium-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
-<span class="token variable">$large-and-up</span><span class="token punctuation">:</span> <span class="token string">"only screen and (min-width : #{$large-screen})"</span> <span class="token statement">!default</span><span class="token punctuation">;</span>
+// Media Query Ranges
+$small-screen: 600px !default;
+$medium-screen: 960px !default;
+$large-screen: 1140px !default;
+$small-and-up: "only screen and (min-width : #{$small-screen})" !default;
+$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
+$large-and-up: "only screen and (min-width : #{$large-screen})" !default;
           </code></pre>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <!--
+    <div class="new-stuff">
+      <div class="rooow">
+        <div class="col">
+          <h1>Fluid and Responive</h1>
+          <h3>By default, columns will grow to full grid width and stack. Use responsive indicators to size into columns on various screen sizes.</h3>
+        </div>
+
+        <div class="col"> <p>.col</p> </div>
+        <div class="col spacing"> <p>.col</p> </div>
+
+        <div class="col x5"> <p>.col x5</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x3 spacing"> <p>.col x3</p> </div>
+
+        <div class="col s6"> <p>.col s6</p> </div>
+        <div class="col s6 spacing"> <p>.col s6</p> </div>
+
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4 spacing"> <p>.col m4</p> </div>
+
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3 spacing"> <p>.col l3</p> </div>
+      </div>
+
+      <div class="row end">
+        <div class="col fit">
+          <div class="medium-box">
+            I'm a box.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col tomato">
+          <div class="medium-box">
+
+          </div>
+        </div>
+      </div>
     </div>
+
   </section>
+
 </body>
-</html>
+-->
