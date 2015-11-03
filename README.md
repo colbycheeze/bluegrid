@@ -4,18 +4,18 @@
 [View Docs Page](http://colbycheeze.github.io/bluegrid/)
 
 ## Instructions
-1. Copy _grid.scss to your stylesheets folder
-2. add `@import _grid.scss` to your main sass file.
+1. Copy `dist/bluegrid.scss` to your stylesheets folder
+2. add `@import bluegrid.scss` to your main sass file.
 3. ??
 4. Profit.
 
 ## Todo
  - add mixins for more "semantic" use.
- - create minified / auto-prefixed version for easy inclusion via CDN?
- - Create packages in Bower, NPM, Meteor
+ - Create packages in Bower, NPM, Meteor, CDN
 
 ## Contributing
 1. `npm install`
-2. make changes
-3. submit PR
-4. yay
+2. `gulp`
+3. make changes
+4. submit PR
+5. yay

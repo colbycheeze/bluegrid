@@ -1,7 +1,7 @@
 //TODO
-// Add minify process
 // Add source maps
-// Figure out why run-sequence doesn't work
+// Figure out why run-sequence doesn't work (or do I even need it?)
+// Figure out why first gulp run fails
 
 import gulp from 'gulp';
 import del from 'del';
@@ -16,11 +16,13 @@ const $ = gulpLoadPlugins();
 const dir = {
   src: './src',
   dest: './build',
+  dist: './dist'
 }
 
 const stylePath = {
   src: `${dir.src}/styles`,
-  dest: `${dir.dest}/css`
+  dest: `${dir.dest}/css`,
+  dist: `${dir.dist}`
 }
 
 const scriptPath = {
@@ -88,65 +90,36 @@ gulp.task('compile:html', () => {
   .pipe(bsync.stream());
 });
 
-gulp.task('build', ['clean', 'compile']);
+gulp.task ('dist', ['dist:clean','dist:rename', 'dist:minify']);
+
+gulp.task('dist:clean', function(cb) {
+  del([`${dir.dist}/**`], cb);
+});
+
+gulp.task('dist:rename', () => {
+  return gulp.src([`${stylePath.src}/_grid.scss`])
+  .pipe($.rename('bluegrid.scss'))
+  .pipe(gulp.dest(dir.dist))
+});
+
+gulp.task('dist:minify', () => {
+  return gulp.src([`${stylePath.src}/_grid.scss`])
+  .pipe($.rename('main.scss'))
+  .pipe($.sass({outputStyle: 'compressed'}))
+  .pipe($.autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe($.rename('bluegrid.min.css'))
+  .pipe(gulp.dest(dir.dist))
+});
+
+gulp.task('build', ['clean', 'compile', 'dist']);
 // gulp.task('build', ['clean', 'compile', 'minify']);
-//
-gulp.task('deploy', () => {
+
+gulp.task('deploy', ['build'], () => {
   return gulp.src(`${dir.dest}/**/*`)
     .pipe($.ghPages({force:true}));
 });
 
-// gulp.task('dev', function(callback) {
-//   runSequence('clean', 'compile', 'serve', callback);
-// });
-
 gulp.task('default', ['clean', 'compile', 'serve']);
-
-// Minify plugins
-// gulp-csso
-// vinyl-paths
-// gulp-filter
-// gulp-rev-all
-
-// gulp.task('minifyVersion', function(cb) {
-//   var cssGlob     = '*|)}>#*.css',
-//       jsGlob      = '*|)}>#*.js',
-//       mapGlob     = '*|)}>#*.map',
-//       cssFilter   = $.filter(cssGlob),
-//       jsFilter    = $.filter(jsGlob),
-//       assetFilter = $.filter([cssGlob, jsGlob, mapGlob]),
-//       vp          = vinylPaths();
-//
-//   return gulp.src(DIR.DIST + '#<{(|*')
-//     // Store asset paths to delete after stream
-//     .pipe(assetFilter)
-//     .pipe(vp)
-//     .pipe(assetFilter.restore())
-//     // Minify JS
-//     .pipe(jsFilter)
-//     .pipe($.uglify())
-//     .on('error', $.notify.onError('Uglify failed'))
-//     .on('error', $.util.log)
-//     .pipe(jsFilter.restore())
-//     // Minify CSS
-//     .pipe(cssFilter)
-//     .pipe($.csso())
-//     .on('error', $.notify.onError('CSSO failed'))
-//     .on('error', $.util.log)
-//     .pipe(cssFilter.restore())
-//     // Version assets
-//     .pipe($.revAll({
-//       ignore: ['.html']
-//     }))
-//     .pipe(gulp.dest(DIR.DIST))
-//     // Show asset sizes
-//     .pipe($.size({
-//       showFiles: true,
-//       gzip: true
-//     }))
-//     // Delete unversioned assets
-//     .on('end', function() {
-//       del(vp.paths);
-//     }, cb);
-// });
-//
