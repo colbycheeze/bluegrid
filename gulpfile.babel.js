@@ -1,7 +1,7 @@
-//TODO
-// Add source maps
-// Figure out why run-sequence doesn't work (or do I even need it?)
-// Figure out why first gulp run fails
+//TODO:
+// - Add source maps
+// - Figure out why run-sequence doesn't work (or do I even need it?)
+// - Figure out why first gulp run fails
 
 import gulp from 'gulp';
 import del from 'del';
@@ -16,13 +16,15 @@ const $ = gulpLoadPlugins();
 const dir = {
   src: './src',
   dest: './build',
-  dist: './dist'
+  dist: './dist',
+  sass: './sass'
 }
 
 const stylePath = {
   src: `${dir.src}/styles`,
   dest: `${dir.dest}/css`,
-  dist: `${dir.dist}`
+  dist: `${dir.dist}`,
+  sass: `${dir.sass}`
 }
 
 const scriptPath = {
@@ -90,21 +92,22 @@ gulp.task('compile:html', () => {
   .pipe(bsync.stream());
 });
 
-gulp.task ('dist', ['dist:clean','dist:rename', 'dist:minify']);
+gulp.task('package', ['package:clean','package:dist', 'package:sass']);
 
-gulp.task('dist:clean', function(cb) {
-  del([`${dir.dist}/**`], cb);
+gulp.task('package:clean', function(cb) {
+  del([`${dir.dist}/**`]); // TODO: Do I need the cb??
+  del([`${dir.sass}/**`], cb);
 });
 
-gulp.task('dist:rename', () => {
+gulp.task('package:sass', () => {
   return gulp.src([`${stylePath.src}/_grid.scss`])
-  .pipe($.rename('bluegrid.scss'))
-  .pipe(gulp.dest(dir.dist))
+  .pipe($.rename('_bluegrid.scss'))
+  .pipe(gulp.dest(dir.sass))
 });
 
-gulp.task('dist:minify', () => {
+gulp.task('package:dist', () => {
   return gulp.src([`${stylePath.src}/_grid.scss`])
-  .pipe($.rename('main.scss'))
+  .pipe($.rename('main.scss')) // TODO: why is this necessary?
   .pipe($.sass({outputStyle: 'compressed'}))
   .pipe($.autoprefixer({
     browsers: ['last 2 versions'],
@@ -114,7 +117,7 @@ gulp.task('dist:minify', () => {
   .pipe(gulp.dest(dir.dist))
 });
 
-gulp.task('build', ['clean', 'compile', 'dist']);
+gulp.task('build', ['clean', 'compile', 'package']);
 // gulp.task('build', ['clean', 'compile', 'minify']);
 
 gulp.task('deploy', ['build'], () => {

@@ -2,7 +2,10 @@
   "name": "bluegrid",
   "version": "1.0.0",
   "description": "A simple, responsive, and customizable grid based on the flex property",
-  "main": "gulpfile.babel.js",
+  "main": [
+    "sass/_bluegrid.scss",
+    "dist/bluegrid.min.css"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
