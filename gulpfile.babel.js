@@ -49,7 +49,7 @@ gulp.task('serve', function() {
 });
 
 gulp.task('clean', function(cb) {
-  del([`${dir.dest}/**`], cb);
+  return del([`${dir.dest}/**`], cb);
 });
 
 gulp.task('compile', [
@@ -95,8 +95,8 @@ gulp.task('compile:html', () => {
 gulp.task('package', ['package:clean','package:dist', 'package:sass']);
 
 gulp.task('package:clean', function(cb) {
-  del([`${dir.dist}/**`]); // TODO: Do I need the cb??
-  del([`${dir.sass}/**`], cb);
+  del([`${dir.dist}/**`]);
+  return del([`${dir.sass}/**`], cb);
 });
 
 gulp.task('package:sass', () => {

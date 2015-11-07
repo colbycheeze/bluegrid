@@ -2,10 +2,7 @@
   "name": "bluegrid",
   "version": "0.1.1",
   "description": "A simple, responsive, and customizable grid based on the flex property",
-  "main": [
-    "sass/_bluegrid.scss",
-    "dist/bluegrid.min.css"
-  ],
+  "main": "sass/_bluegrid.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +17,7 @@
     "semantic",
     "flexbox"
   ],
-  "author": "colbycheeze",
+  "author": "Colby Williams (colby@colbycheeze.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/colbycheeze/bluegrid/issues"
