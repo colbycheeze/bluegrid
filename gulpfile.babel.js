@@ -1,7 +1,6 @@
 //TODO:
 // - Add source maps
-// - Figure out why run-sequence doesn't work (or do I even need it?)
-// - Figure out why first gulp run fails
+// - Figure out why gulp run fails once build folder exists
 
 import gulp from 'gulp';
 import del from 'del';
@@ -37,7 +36,7 @@ const imagePath = {
   dest: `${dir.dest}/assets/images`
 }
 
-gulp.task('serve', function() {
+gulp.task('serve', function(cb) {
   bsync.init({
     server: { baseDir: dir.dest }
   });
@@ -46,18 +45,22 @@ gulp.task('serve', function() {
   gulp.watch(`${scriptPath.src}/**/*.js`, ['compile:scripts']);
   gulp.watch(`${imagePath.src}/**/*`, ['compile:images']);
   gulp.watch(`${dir.src}/**/*.html`, ['compile:html']);
+  cb();
 });
 
 gulp.task('clean', function(cb) {
-  return del([`${dir.dest}/**`], cb);
+  del.sync([`${dir.dest}/**`]);
+  cb();
 });
 
-gulp.task('compile', [
-  'compile:html',
-  'compile:images',
-  'compile:scripts',
-  'compile:styles'
-]);
+gulp.task('compile', function(cb) {
+  runSequence([
+    'compile:html',
+    'compile:images',
+    'compile:scripts',
+    'compile:styles'
+  ], cb);
+});
 
 gulp.task('compile:styles', () => {
   return gulp.src(`${stylePath.src}/**/*.scss`)
@@ -81,22 +84,26 @@ gulp.task('compile:scripts', () => {
 
 gulp.task('compile:images', () => {
   return gulp.src(`${imagePath.src}/*`)
-    .pipe($.size())
-    .pipe(gulp.dest(imagePath.dest))
-    .pipe(bsync.stream());
+  .pipe($.plumber())
+  .pipe($.size())
+  .pipe(gulp.dest(imagePath.dest))
+  .pipe(bsync.stream());
 });
 
 gulp.task('compile:html', () => {
   return gulp.src([`${dir.src}/*.html`])
+  .pipe($.plumber())
   .pipe(gulp.dest(dir.dest))
   .pipe(bsync.stream());
 });
 
-gulp.task('package', ['package:clean','package:dist', 'package:sass']);
+gulp.task('package', function(cb) {
+  runSequence('package:clean', ['package:dist', 'package:sass'], cb);
+});
 
 gulp.task('package:clean', function(cb) {
-  del([`${dir.dist}/**`]);
-  return del([`${dir.sass}/**`], cb);
+  del.sync([`${dir.dist}/**`, `${dir.sass}/**`]);
+  cb();
 });
 
 gulp.task('package:sass', () => {
@@ -117,12 +124,15 @@ gulp.task('package:dist', () => {
   .pipe(gulp.dest(dir.dist))
 });
 
-gulp.task('build', ['clean', 'compile', 'package']);
-// gulp.task('build', ['clean', 'compile', 'minify']);
+gulp.task('build', function(cb) {
+  runSequence('clean', ['compile', 'package'], cb);
+});
 
 gulp.task('deploy', ['build'], () => {
   return gulp.src(`${dir.dest}/**/*`)
-    .pipe($.ghPages({force:true}));
+  .pipe($.ghPages({force:true}));
 });
 
-gulp.task('default', ['clean', 'compile', 'serve']);
+gulp.task('default', function(cb) {
+  runSequence('clean', ['compile', 'serve'], cb);
+});
