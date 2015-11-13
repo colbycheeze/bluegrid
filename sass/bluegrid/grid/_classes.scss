@@ -1,0 +1,115 @@
+@mixin _query-or-not($breakpoint) {
+  @if $breakpoint == default {
+    @content;
+  } @else {
+    @media only screen and (min-width : #{$breakpoint}) {
+      @content;
+    }
+  }
+}
+
+@mixin row-prefixes($size) {
+  &.reverse#{$size} { flex-direction: row-reverse; }
+
+  // Horizontal Alignment
+  &.start#{$size} { justify-content: flex-start; }
+  &.center#{$size} { justify-content: center; }
+  &.end#{$size} { justify-content: flex-end; }
+  &.around#{$size} { justify-content: space-around; }
+  &.between#{$size} { justify-content: space-between; }
+
+  // Vertical Alignment
+  &.top#{$size} {
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  &.middle#{$size} {
+    align-content: center;
+    align-items: center;
+  }
+  &.bottom#{$size} {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@mixin col-prefixes($size) {
+  &.first#{$size} { order: -1; }
+  &.last#{$size} { order: 1; }
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: _bluegrid('container-padding');
+  padding-left: _bluegrid('container-padding');
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: _bluegrid('container-padding');
+  padding-left: _bluegrid('container-padding');
+  width: 100%;
+  max-width: _bluegrid('container-width');
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // Fix for grid edges
+  // http://csswizardry.com/2011/08/building-better-grid-systems/
+  margin-right: (_bluegrid('gutter-width') / 2) * -1;
+  margin-left: (_bluegrid('gutter-width') / 2) * -1;
+
+}
+
+.col {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  padding: 0 (_bluegrid('gutter-width') / 2);
+}
+
+@each $label, $breakpoint in $bluegrid-breakpoints {
+  $-pfix: if($breakpoint == default, '', '-#{$label}');
+  $pfix: if($breakpoint == default, '', '#{$label}');
+
+  @include _query-or-not($breakpoint) {
+    .row { @include row-prefixes($-pfix); }
+
+    .col {
+      @include col-prefixes($-pfix);
+
+      &.fit#{$-pfix} {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        max-width: 100%;
+      }
+
+      $i: 1;
+      @while $i <= _bluegrid('num-cols') {
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
+        &.#{$label}#{$i} {
+          width: $perc;
+          flex-basis: $perc;
+          max-width: $perc;
+        }
+        $i: $i + 1;
+      }
+
+      $i: 1;
+      @while $i <= _bluegrid('num-cols') {
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
+        &.offset-#{$pfix}#{$i} {
+          margin-left: $perc;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+}

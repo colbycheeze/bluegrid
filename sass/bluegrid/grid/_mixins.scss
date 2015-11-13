@@ -1,0 +1,74 @@
+@mixin container-fluid() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: _bluegrid('gutter-width');
+  padding-left: _bluegrid('gutter-width');
+  width: 100%;
+}
+
+@mixin container($max-width: _bluegrid('container-max-width'), $gutter: _bluegrid('gutter-width')) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  width: 100%;
+  max-width: $max-width;
+}
+
+@mixin flex-wrapper($justify-align: start top, $direction: row) {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+  justify-content: _get-justify-type($justify-align);
+  align-content: _get-align($justify-align);
+  align-items: _get-align($justify-align);
+
+  margin-right: (_bluegrid('gutter-width') / 2) * -1;
+  margin-left: (_bluegrid('gutter-width') / 2) * -1;
+}
+// Alias to flex-wrapper
+@mixin row($justify-align: start top, $direction: row) {
+  @include flex-wrapper($justify-align, $direction);
+}
+
+@mixin flex-item($span: _bluegrid('default-span'), $direction: column) {
+  box-sizing: border-box;
+  padding: 0 (_bluegrid('gutter-width') / 2);
+  flex-direction: $direction;
+
+  @if _params-do-match($span, _bluegrid('fit')) {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    width: auto;
+    max-width: 100%;
+  } @else {
+    $columns: nth($span, 1);
+    $total-columns: _get-total-columns($span);
+    $perc: _get-col-percentage($columns, $total-columns);
+
+    width: $perc;
+    max-width: $perc;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: $perc;
+  }
+}
+// Alias to flex-item
+@mixin column($span: _bluegrid('default-span'), $direction: column) {
+  @include flex-item($span, $direction);
+}
+
+@mixin offset($span: 1 of _bluegrid('num-cols'), $margin: left) {
+  $columns: nth($span, 1);
+  $total-columns: _get-total-columns($span);
+  $perc: _get-col-percentage($columns, $total-columns);
+
+  @if ($margin == right) {
+    margin-right: $perc;
+  } @else {
+    margin-left: $perc;
+  }
+}
