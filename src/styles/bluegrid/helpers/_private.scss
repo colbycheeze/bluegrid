@@ -1,0 +1,80 @@
+@function _bluegrid($key) {
+  @if map-has-key($bluegrid-settings, $key) {
+    @return map-get($bluegrid-settings, $key);
+  }
+
+  @warn "Unkown `#{$key}` in $bluegrid-settings";
+  @return null;
+}
+
+@function _get-total-columns($span: $span) {
+  @if length($span) == 3 {
+    $total-columns: nth($span, 3);
+    @return $total-columns;
+
+  } @else if length($span) == 2 {
+    $total-columns: nth($span, 2);
+    @return $total-columns;
+  }
+
+  @return _bluegrid('num-cols');
+}
+
+@function _get-col-percentage($columns, $total-columns) {
+  @if (unit($columns) == "%") {
+    @return $columns
+
+  } @else {
+    @return ((100 / ($total-columns / $columns)) + %);
+  }
+}
+
+@function _params-do-match($params, $items) {
+  @each $param in $params {
+    @each $item in $items {
+      @if $param == $item {
+        @return true;
+      }
+    }
+  }
+
+  @return false;
+}
+
+@function _get-justify-type($params) {
+
+
+  @if _params-do-match($params, _bluegrid('start')) {
+    @return flex-start;
+
+  } @else if _params-do-match($params, _bluegrid('center')) {
+    @return center;
+
+  } @else if _params-do-match($params, _bluegrid('end')) {
+    @return flex-end;
+
+  } @else if _params-do-match($params, _bluegrid('around')) {
+    @return space-around;
+
+  } @else if _params-do-match($params, _bluegrid('between')) {
+    @return space-between;
+
+  } @else {
+    @return flex-start;
+  }
+}
+
+@function _get-align($params) {
+  @if _params-do-match($params, _bluegrid('top')) {
+    @return flex-start;
+
+  } @else if _params-do-match($params, _bluegrid('middle')) {
+    @return center;
+
+  } @else if _params-do-match($params, _bluegrid('bottom')) {
+    @return flex-end;
+
+  } @else {
+    @return flex-start;
+  }
+}

@@ -4,5 +4,60 @@
 
 .rooow {
   @include row();
+
+  @include breakpoint($large-screen) {
+    @include row(omega);
+  }
+}
+
+.example-column {
+  @include column();
+
+  @include breakpoint($small-screen) {
+    @include column(4 of 18);
+  }
+
+  @include breakpoint($medium-screen) {
+    @include column(6);
+  }
+
+  @include breakpoint($large-screen) {
+    @include column(25%);
+  }
+
+  // @include column();
+  // @include column(4);
+  // @include column(6 of 18);
+  // @include column(4 20);
+  // @include column(50%);
+  // @include column('fit');
+  // @include column('match content');
+}
+
+.offset-example {
+  @include column(2 of 12);
+  // @include flex-item(2 of 12);
+  @include offset(2);
+}
+
+.one {
+  height: 400px;
+  order: 1;
+}
+.two {
+  align-self: flex-end;
+}
+.three {
+  align-self: center;
+}
+
+.boxy {
+  text-align: center;
+  padding-top: 1rem;
+  height: 100px;
+  // width: 300px;
+  width: 100%;
+  max-width: 100%;
+  background: tomato;
 }
 
