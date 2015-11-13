@@ -13,9 +13,6 @@
   padding-left: $gutter;
   width: 100%;
   max-width: $max-width;
-
-  @media #{$small-and-up} { width: 90%; }
-  @media #{$medium-and-up} { width: 85%; }
 }
 
 @mixin flex-wrapper($justify-align: start top, $direction: row) {

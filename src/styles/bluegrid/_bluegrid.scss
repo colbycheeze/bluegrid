@@ -1,41 +1,4 @@
-// Media Query Ranges
-$small-screen: 600px !default;
-$medium-screen: 960px !default;
-$large-screen: 1140px !default;
-$small-and-up: "only screen and (min-width : #{$small-screen})" !default;
-$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
-$large-and-up: "only screen and (min-width : #{$large-screen})" !default;
-
-$bluegrid-settings: (
-  // Default grid variables
-  'num-cols': 12,
-  'gutter-width': 1rem,
-  'default-span': 100%, //This can be 'fit', or a unit (1), or fill whole row (100%)
-
-  // Defaults for helpers
-  'container-width': 1280px,
-  'section-padding': 1rem,
-
-  // ******** TERMINOLOGY ********
-
-  'fit': fit content match-content 'match content',
-
-  // Justify
-  'start': start justify-start beginning,
-  'center': center justify-center hcenter,
-  'end': end justify-end omega,
-  'around': around justify-around,
-  'between': between justify-between,
-
-  // Align
-  'top': top align-start content-top,
-  'middle': middle align-center vcenter,
-  'bottom': bottom align-end content-bottom
-
-  // *****************************
-);
-
-
+@import 'settings/variables';
 @import 'helpers/private';
 
 @import 'grid/mixins';

@@ -1,79 +1,57 @@
-@mixin grid-prefixes($size) {
-  .start#{$size} {
-    justify-content: flex-start;
-  }
-  .center#{$size} {
-    justify-content: center;
-  }
-  .end#{$size} {
-    justify-content: flex-end;
-  }
-  .around#{$size} {
-    justify-content: space-around;
-  }
-  .between#{$size} {
-    justify-content: space-between;
-  }
-
-  .top#{$size} {
-    align-content: flex-start;
-    align-items: flex-start;
-  }
-  .middle#{$size} {
-    align-content: center;
-    align-items: center;
-  }
-  .bottom#{$size} {
-    align-content: flex-end;
-    align-items: flex-end;
-  }
-  .first#{$size} {
-    order: -1;
-  }
-  .last#{$size} {
-    order: 1;
+@mixin _query-or-not($breakpoint) {
+  @if $breakpoint == default {
+    @content;
+  } @else {
+    @media only screen and (min-width : #{$breakpoint}) {
+      @content;
+    }
   }
 }
 
-@include grid-prefixes("");
+@mixin row-prefixes($size) {
+  &.reverse#{$size} { flex-direction: row-reverse; }
+
+  // Horizontal Alignment
+  &.start#{$size} { justify-content: flex-start; }
+  &.center#{$size} { justify-content: center; }
+  &.end#{$size} { justify-content: flex-end; }
+  &.around#{$size} { justify-content: space-around; }
+  &.between#{$size} { justify-content: space-between; }
+
+  // Vertical Alignment
+  &.top#{$size} {
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  &.middle#{$size} {
+    align-content: center;
+    align-items: center;
+  }
+  &.bottom#{$size} {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@mixin col-prefixes($size) {
+  &.first#{$size} { order: -1; }
+  &.last#{$size} { order: 1; }
+}
 
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-right: _bluegrid('gutter-width');
-  padding-left: _bluegrid('gutter-width');
+  padding-right: _bluegrid('container-padding');
+  padding-left: _bluegrid('container-padding');
 }
 
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: _bluegrid('gutter-width');
-  padding-left: _bluegrid('gutter-width');
+  padding-right: _bluegrid('container-padding');
+  padding-left: _bluegrid('container-padding');
   width: 100%;
   max-width: _bluegrid('container-width');
-}
-
-@media #{$small-and-up} {
-  @include grid-prefixes("-s");
-  .container { width: 90%; }
-}
-@media #{$medium-and-up} {
-  @include grid-prefixes("-m");
-  .container { width: 85%; }
-}
-@media #{$large-and-up} {
-  @include grid-prefixes("-l");
-}
-
-.section {
-  padding: _bluegrid('section-padding') 0;
-
-  &.no-pad-bot {
-    padding-bottom: 0;
-  }
-  &.no-pad-top {
-    padding-top: 0;
-  }
 }
 
 .row {
@@ -88,124 +66,50 @@
   margin-right: (_bluegrid('gutter-width') / 2) * -1;
   margin-left: (_bluegrid('gutter-width') / 2) * -1;
 
-  &.reverse {
-    flex-direction: row-reverse;
-  }
 }
 
 .col {
   box-sizing: border-box;
   flex: 0 0 100%;
   padding: 0 (_bluegrid('gutter-width') / 2);
+}
 
-  &.reverse {
-    flex-direction: column-reverse;
-  }
+@each $label, $breakpoint in $bluegrid-breakpoints {
+  $-pfix: if($breakpoint == default, '', '-#{$label}');
+  $pfix: if($breakpoint == default, '', '#{$label}');
 
-  &.fit {
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    max-width: 100%;
-  }
+  @include _query-or-not($breakpoint) {
+    .row { @include row-prefixes($-pfix); }
 
-  $i: 1;
-  @while $i <= _bluegrid('num-cols') {
-    $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-    &.x#{$i} {
-      width: $perc;
-      flex-basis: $perc;
-      max-width: $perc;
-    }
-    $i: $i + 1;
-  }
+    .col {
+      @include col-prefixes($-pfix);
 
-  $i: 1;
-  @while $i <= _bluegrid('num-cols') {
-    $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-    &.offset-#{$i} {
-      margin-left: $perc;
-    }
-    $i: $i + 1;
-  }
-
-  @media #{$small-and-up} {
-    &.fit-s {
-      flex-grow: 0;
-      flex-shrink: 1;
-      flex-basis: auto;
-    }
-
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.s#{$i} {
-        width: $perc;
-        flex-basis: $perc;
-        max-width: $perc;
+      &.fit#{$-pfix} {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        max-width: 100%;
       }
-      $i: $i + 1;
-    }
 
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.offset-s#{$i} {
-        margin-left: $perc;
+      $i: 1;
+      @while $i <= _bluegrid('num-cols') {
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
+        &.#{$label}#{$i} {
+          width: $perc;
+          flex-basis: $perc;
+          max-width: $perc;
+        }
+        $i: $i + 1;
       }
-      $i: $i + 1;
-    }
-  }
 
-  @media #{$medium-and-up} {
-    &.fit-m {
-      flex-grow: 0;
-      flex-shrink: 1;
-      flex-basis: auto;
-    }
-
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.m#{$i} {
-        flex-basis: $perc;
-        max-width: $perc;
+      $i: 1;
+      @while $i <= _bluegrid('num-cols') {
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
+        &.offset-#{$pfix}#{$i} {
+          margin-left: $perc;
+        }
+        $i: $i + 1;
       }
-      $i: $i + 1;
-    }
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.offset-m#{$i} {
-        margin-left: $perc;
-      }
-      $i: $i + 1;
-    }
-  }
-
-  @media #{$large-and-up} {
-    &.fit-l {
-      flex-grow: 0;
-      flex-shrink: 1;
-      flex-basis: auto;
-    }
-
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.l#{$i} {
-        flex-basis: $perc;
-        max-width: $perc;
-      }
-      $i: $i + 1;
-    }
-    $i: 1;
-    @while $i <= _bluegrid('num-cols') {
-      $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
-      &.offset-l#{$i} {
-        margin-left: $perc;
-      }
-      $i: $i + 1;
     }
   }
 }

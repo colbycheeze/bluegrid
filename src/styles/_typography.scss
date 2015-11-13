@@ -3,6 +3,9 @@ $base-spacing: 1rem;
 $base-line-height: 1.5;
 
 // Flow Text
+$small-screen: 600px;
+$medium-screen: 960px;
+$large-screen: 1190px;
 $range : $large-screen - $small-screen;
 $intervals: 20;
 $interval-size: $range / $intervals;
