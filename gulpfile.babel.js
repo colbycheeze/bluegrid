@@ -21,7 +21,7 @@ const dir = {
   src: './src',
   dest: './build',
   dist: './dist',
-  sass: './sass'
+  sass: './bluegrid'
 }
 
 const stylePath = {
@@ -113,7 +113,7 @@ gulp.task('package:clean', function(cb) {
 
 gulp.task('package:sass', () => {
   return gulp.src([`${stylePath.src}/bluegrid/**`])
-  .pipe(gulp.dest(`${dir.sass}/bluegrid`))
+  .pipe(gulp.dest(`${dir.sass}`))
 });
 
 gulp.task('package:dist', () => {

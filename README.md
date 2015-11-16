@@ -6,18 +6,18 @@
 ## Getting Started
 ##### With NPM:
   1. `npm install bluegrid`
-  2. `@import node_modules/bluegrid/sass/bluegrid`
+  2. `@import node_modules/bluegrid/bluegrid`
   3. or add `<link rel="stylesheet" type="text/css" href="node_modules/bluegrid/dist/bluegrid.min.css">`
 
 ##### With Bower:
   1. `bower install bluegrid`
-  2. `@import bower_components/bluegrid/sass/bluegrid`
+  2. `@import bower_components/bluegrid/bluegrid`
   3. or add `<link rel="stylesheet" type="text/css" href="bower_components/bluegrid/dist/bluegrid.min.css">`
 
 ##### With Meteor:
   1. `meteor add colbycheeze:bluegrid`
   2. `meteor add fourseven:scss`
-  3. `@import {colbycheeze:bluegrid}/sass/bluegrid`
+  3. `@import {colbycheeze:bluegrid}/bluegrid`
 
 ## Contributing / Dev
   1. Clone or Fork repo and type `npm install` in the project directory
