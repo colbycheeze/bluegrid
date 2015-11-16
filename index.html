@@ -17,11 +17,14 @@
   </section>
 
   <section id="examples" class="section">
+
     <div class="container">
       <div class="row">
         <div class="col">
           <h1>Fluid and Responive</h1>
-          <h3>By default, columns will grow to full grid width and stack. Use responsive indicators to size into columns on various screen sizes.</h3>
+          <h3>By default, columns will grow to full grid width and stack. </br>
+            Use responsive indicators to size into columns on various screen sizes. </br>
+            Use 'fit' to match columns to content size </h3>
         </div>
 
         <div class="col"> <p>.col</p> </div>
@@ -42,15 +45,29 @@
         <div class="col l3"> <p>.col l3</p> </div>
         <div class="col l3"> <p>.col l3</p> </div>
         <div class="col l3 spacing"> <p>.col l3</p> </div>
+
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
+        <div class="col fit"> <p>.col fit</p> </div>
       </div>
 
       <div class="row">
-          <h1>Simple lightweight syntax</h1>
-          <h3>Just wrap your grid with row and then add col to each child. Size
-            columns by adding a screen size followed by a number.
-            Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
+        <h1>Simple lightweight syntax</h1>
+        <h3>Wrap your grid with row and then add col to each child. </br>
+          Size columns by adding a screen size followed by a number. </br>
+          x = all screen sizes, s = small, m = medium, l = large </br>
+          Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
 
-          <pre class="col"><code class="language-markup">
+        <pre class="col"><code class="language-markup">
 &lt;div class="container"&gt;<br />
   &lt;div class="row"&gt;<br />
     &lt;div class="col"&gt; Full Width column &lt;/div&gt;<br />
@@ -58,9 +75,10 @@
     &lt;div class="col s6"&gt;6 columns on small and up&lt;/div&gt;<br />
     &lt;div class="col m6"&gt;6 columns on medium and up&lt;/div&gt;<br />
     &lt;div class="col l6"&gt;6 columns on large and up&lt;/div&gt;<br />
+    &lt;div class="col fit"&gt;Column will shrink to size of content&lt;/div&gt;<br />
   &lt;/div&gt;<br />
 &lt;/div&gt;<br />
-          </code></pre>
+        </code></pre>
       </div>
 
       <div class="row">
@@ -201,71 +219,35 @@
           <h1>Customizable</h1>
           <h3>Blue Grid is built in Sass, so feel free to override it's variables to fit the needs of your project!</h3>
           <pre><code class="language-scss">
-// Grid variables
-$num-cols: 12 !default;
-$gutter-width: 1rem !default;
+// _variables.scss
 
-// Layout helpers
-$container-max-width: 1280px !default;
-$section-padding: 1rem !default;
+// Add, remove, or rename breakpoints here
+$bluegrid-breakpoints: (
+  'x': default,
+  's': 600px,
+  'm': 960px,
+  'l': 1140px
+);
 
-// Media Query Ranges
-$small-screen: 600px !default;
-$medium-screen: 960px !default;
-$large-screen: 1140px !default;
-$small-and-up: "only screen and (min-width : #{$small-screen})" !default;
-$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
-$large-and-up: "only screen and (min-width : #{$large-screen})" !default;
+$bluegrid-settings: (
+  // Default grid variables
+  'num-cols': 12,
+  'gutter-width': 1rem,
+  'default-span': 100%, //This can be 'fit', or a unit (1), or fill whole row (100%)
+
+  // Defaults for content containers
+  'container-width': 1280px,
+  'container-padding': 1rem,
+
+  ...
+// Mixin related variables omitted ...
+);
           </code></pre>
         </div>
       </div>
     </div>
 
-    <!--
-    <div class="new-stuff">
-      <div class="rooow">
-        <div class="col">
-          <h1>Fluid and Responive</h1>
-          <h3>By default, columns will grow to full grid width and stack. Use responsive indicators to size into columns on various screen sizes.</h3>
-        </div>
-
-        <div class="col"> <p>.col</p> </div>
-        <div class="col spacing"> <p>.col</p> </div>
-
-        <div class="col x5"> <p>.col x5</p> </div>
-        <div class="col x4"> <p>.col x4</p> </div>
-        <div class="col x3 spacing"> <p>.col x3</p> </div>
-
-        <div class="col s6"> <p>.col s6</p> </div>
-        <div class="col s6 spacing"> <p>.col s6</p> </div>
-
-        <div class="col m4"> <p>.col m4</p> </div>
-        <div class="col m4"> <p>.col m4</p> </div>
-        <div class="col m4 spacing"> <p>.col m4</p> </div>
-
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3 spacing"> <p>.col l3</p> </div>
-      </div>
-
-      <div class="row end">
-        <div class="col fit">
-          <div class="medium-box">
-            I'm a box.
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col tomato">
-          <div class="medium-box">
-
-          </div>
-        </div>
-      </div>
-    </div>
 
   </section>
 
 </body>
--->
