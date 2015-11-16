@@ -26,6 +26,10 @@
   4. Yay
 
 ## Project Todo
- - Continue adding mixins for more "semantic" use.
- - Create more real world examples / layout recipes
- - Fix gulp issue that crashes when rebuilding, probably because of needing to run in sequence
+ - Create a download file
+ - Improve Docs:
+  - Add link back to Github
+  - Create docs section for all mixin functionality
+  - Create sidebar reference to where you are while scrolling on page.
+  - Make some examples of real world layouts / use cases
+

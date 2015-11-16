@@ -1,6 +1,10 @@
 //TODO:
 // - Add source maps
-// - Figure out why gulp run fails once build folder exists
+
+// Release reminders
+// gulp docs - releases docs
+// gulp package - compiles usable code
+// gulp patch, feature, release - updates semver (you have to manually update meteor package)
 
 import gulp from 'gulp';
 import del from 'del';
@@ -141,7 +145,7 @@ gulp.task('build', function(cb) {
   runSequence('clean', ['compile', 'package'], cb);
 });
 
-gulp.task('deploy', ['build'], () => {
+gulp.task('docs', () => {
   return gulp.src(`${dir.dest}/**/*`)
   .pipe($.ghPages({force:true}));
 });
