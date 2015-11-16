@@ -8,6 +8,7 @@ import browserSync from 'browser-sync';
 const bsync = browserSync.create();
 const reload = bsync.reload;
 import runSequence from 'run-sequence';
+import tag_version from 'gulp-tag-version';
 import gulpLoadPlugins from 'gulp-load-plugins';
 const $ = gulpLoadPlugins();
 
@@ -122,6 +123,19 @@ gulp.task('package:dist', () => {
   .pipe($.rename('bluegrid.min.css'))
   .pipe(gulp.dest(dir.dist))
 });
+
+function inc(importance) {
+  return gulp.src(['./package.json'])
+  .pipe($.bump({type: importance}))
+  .pipe(gulp.dest('./'))
+  .pipe($.git.commit('bumps package version'))
+  .pipe($.filter('package.json'))
+  .pipe(tag_version());
+}
+
+gulp.task('patch', () => inc('patch'));
+gulp.task('feature', () => inc('minor'));
+gulp.task('release', () => inc('major'));
 
 gulp.task('build', function(cb) {
   runSequence('clean', ['compile', 'package'], cb);
