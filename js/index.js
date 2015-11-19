@@ -1,0 +1,1 @@
+function ready(){var n=document.getElementById("nav").offsetTop;window.onscroll=function(){var o=document.documentElement&&document.documentElement.scrollTop||document.body.scrollTop;o>=n?nav.classList.add("nav-stick"):nav.classList.remove("nav-stick")}}
