@@ -66,6 +66,7 @@
   box-sizing: border-box;
   flex: 0 0 100%;
   padding: 0 (_bluegrid('gutter-width') / 2);
+  min-width: 0; // Fix for firefox bug
 }
 
 @each $label, $breakpoint in $bluegrid-breakpoints {

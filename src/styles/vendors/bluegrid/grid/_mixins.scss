@@ -37,6 +37,7 @@
   box-sizing: border-box;
   padding: 0 (_bluegrid('gutter-width') / 2);
   flex-direction: $direction;
+  min-width: 0; // Firefox bug fix
 
   @if _params-do-match($span, _bluegrid('fit')) {
     flex-grow: 0;
