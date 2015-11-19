@@ -1,3 +1,5 @@
+// html, body{overflow-x: hidden;}
+code{ overflow: auto; }
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -8,6 +10,7 @@ html {
 }
 
 body {
+  max-width: 100%;
   margin: 0;
   font: 16px/1 sans-serif;
   -moz-osx-font-smoothing: grayscale;
