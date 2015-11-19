@@ -7,8 +7,23 @@
   @return null;
 }
 
+$FIXED-UNITS: px cm mm ch pica in em rem pt pc ex vw vh vmin vmax;
+@function _is-fixed($var) {
+  @if type-of($var) == number {
+    @if unitless($var) {
+      @return false;
+    }
+  } @else {
+    @return false;
+  } @if not index($FIXED-UNITS, unit($var)) {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
 
-@function _get-total-columns($span: $span) {
+
+@function _get-total-columns($span) {
   @if length($span) == 3 {
     $total-columns: nth($span, 3);
     @return $total-columns;

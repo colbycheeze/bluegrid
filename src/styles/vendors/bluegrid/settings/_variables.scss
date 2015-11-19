@@ -20,6 +20,7 @@ $bluegrid-settings: (
 
   // ******** MIXIN TERMINOLOGY ********
 
+  // ** Rows / Flex Wrapper **
   // Used with @include row();
   // Example: @include row(center bottom); -or- @include row(vcenter hcenter);
 
@@ -35,6 +36,7 @@ $bluegrid-settings: (
   'middle': middle vcenter align-center,
   'bottom': bottom align-end content-bottom,
 
+  // ** Columns / Flex Items **
   // Used with @include column();
   // Example: @include column(fit); -or - @include column(expand);
 
