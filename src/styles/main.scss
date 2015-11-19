@@ -1,28 +1,79 @@
-@import 'reset';
-@import 'breakpoint/breakpoint';
-@import 'bluegrid/bluegrid';
-@import 'typography';
+@import 'utils/colors';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'vendors/breakpoint/breakpoint';
+@import 'vendors/bluegrid/bluegrid';
+@import 'vendors/prism';
+@import 'vendors/prism-custom';
+
+@import 'components/buttons';
+@import 'components/navbar';
+
 @import 'grid-tests';
-@import 'prism';
+@import 'mixin-examples';
+
+
+section { margin-bottom: 1.5rem; }
+
+body {
+  background: color('primary', 'background');
+}
+
+.instructions {
+  margin-left: 1rem;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.title-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.row-label {
+  font-weight: bold;
+  color: royalblue;
+  padding: 6px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: #DFDFDF;
+  display: inline-block;
+}
+
+#getting-started {
+  hr {
+    margin: 2rem 0;
+  }
+}
 
 #hero {
+  background: white;
   padding-top: $base-spacing * 2;
   padding-bottom: $base-spacing * 2;
   text-align: center;
+  margin-bottom: 0;
 
   h1 {
+    font-family: 'HelveticaNeue-Bold';
     font-size: $base-spacing * 4;
-    font-weight: bold;
+    font-weight: 700;
+  }
+  h2 {
+    margin-bottom: 1rem;
   }
   .flex {
     color: mediumblue;
   }
 }
 
-#examples {
-  background: whitesmoke;
-
+.examples {
   h1+h3 {margin-bottom: $base-spacing * 2;}
+}
+#classes {
 
   .col p {
     background-color: dodgerblue;
@@ -61,15 +112,6 @@
     height: 150px;
   }
 
-  .row-label {
-    font-weight: bold;
-    color: royalblue;
-    padding: 6px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    background-color: #DFDFDF;
-    display: inline-block;
-  }
 
   .row.outline {
     border: 1px dashed black;

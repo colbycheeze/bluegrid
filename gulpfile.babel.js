@@ -112,12 +112,12 @@ gulp.task('package:clean', function(cb) {
 });
 
 gulp.task('package:sass', () => {
-  return gulp.src([`${stylePath.src}/bluegrid/**`])
+  return gulp.src([`${stylePath.src}/vendors/bluegrid/**`])
   .pipe(gulp.dest(`${dir.sass}`))
 });
 
 gulp.task('package:dist', () => {
-  return gulp.src([`${stylePath.src}/bluegrid/_bluegrid.scss`])
+  return gulp.src([`${stylePath.src}/vendors/bluegrid/_bluegrid.scss`])
   .pipe($.rename('main.scss')) // TODO: why is this necessary?
   .pipe($.sass({outputStyle: 'compressed'}))
   .pipe($.autoprefixer({

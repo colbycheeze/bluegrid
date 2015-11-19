@@ -44,6 +44,12 @@
     flex-basis: auto;
     width: auto;
     max-width: 100%;
+  } @else if _params-do-match($span, _bluegrid('grow')) {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: auto;
+    max-width: 100%;
   } @else {
     $columns: nth($span, 1);
     $total-columns: _get-total-columns($span);

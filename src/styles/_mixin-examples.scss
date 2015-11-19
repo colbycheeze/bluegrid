@@ -1,0 +1,57 @@
+#mixins {
+  .spacer {
+    margin-bottom: 2rem;
+
+  }
+  .col {
+    .spacer {
+      @include breakpoint(600px) {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+
+  .content-box {
+    background: color('primary');
+    color: whitesmoke;
+    width: 100%;
+    padding: 1rem;
+  }
+  .example-full {
+    // @include column();
+
+    position: absolute;
+  }
+  .row-label {
+    font-size: 1rem;
+    margin-top: -1rem;
+  }
+
+  .example-code { margin-bottom: 3rem; }
+
+  .dashed { border: 1px dashed black; }
+  .example-layout-wrapper { @include row(); }
+
+  .example-wrapper-left { @include row(left); }
+  .example-wrapper-center { @include row(center); }
+  .example-wrapper-right { @include row(right); }
+  .example-wrapper-around { @include row(around); }
+  .example-wrapper-between { @include row(between); }
+
+  .example-tall-wrapper-top { @include row(top center); height: 125px; }
+  .example-tall-wrapper-middle { @include row(center middle); height: 125px;  }
+  .example-tall-wrapper-bottom { @include row(bottom center); height: 125px;  }
+
+  .example-content { @include column(8); }
+  .example-sidebar { @include column(4); }
+  .example-three-col { @include column(3); }
+  .example-perc-25 { @include column(25%); }
+  .example-one-of-4 { @include column(1 of 4); }
+  .example-one-4 { @include column(1 4); }
+  .example-default { @include column(); }
+  .example-fit { @include column(fit); }
+  .example-grow { @include column(grow); }
+
+}

@@ -38,11 +38,16 @@
   &.last#{$size} { order: 1; }
 }
 
-.container-fluid {
+@if _bluegrid('do-compile-classes') {
+  @debug: 'what';
+
+.container-fluid, .fluid-container {
   margin-right: auto;
   margin-left: auto;
   padding-right: _bluegrid('container-padding');
   padding-left: _bluegrid('container-padding');
+  width: 100%;
+  max-width: 100%;
 }
 
 .container {
@@ -112,4 +117,5 @@
       }
     }
   }
+}
 }

@@ -6,6 +6,7 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1, minimal-ui, maximum-scale=1, minimum-scale=1" />
 <link rel="stylesheet" href="css/main.css">
 <script src="js/prism.js"></script>
+<script src="js/index.js"></script>
 </head>
 
 <body>
@@ -14,20 +15,108 @@
       <h1>Welcome to Blue Grid!</h1>
       <h2>A simple, responsive, and customizable grid based on the <span class="flex">flex</span> property</h2>
     </div>
+
+    <div class="col">
+      <a class="btn" href="http://github.com/colbycheeze/bluegrid">View on Github</a>
+    </div>
   </section>
 
-  <section id="examples" class="section">
+  <nav id="nav">
+    <div class="container-fluid">
+      <ul class="navbar">
+        <!-- <li> <a class="btn" href="#">BlueGrid</a> </li> -->
+        <li> <a class="btn" href="#getting-started">Getting Started</a> </li>
+        <li> <a class="btn" href="#classes">Classes</a> </li>
+        <li> <a class="btn" href="#mixins">Mixins</a> </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section> </section>
+
+  <section name='getting-started' class="container" id="getting-started">
+    <div class="title-section">
+      <h1 class="title">Getting Started</h1>
+    </div>
+
+    <h2>With NPM:</h2>
+    <ul class="instructions">
+      <li>In Bash:</li>
+      <li> <code class="language-bash"> $ npm install bluegrid </code> </li>
+      <li>Within your main sass file:</li>
+      <li> <code class="language-scss"> @import node_modules/bluegrid/bluegrid</code> </li>
+      <li><em>Optional:</em> You can also add the minified version directly to your HTML:</li>
+      <li> <code class="language-markup">&lt;link rel="stylesheet" type="text/css" href="node_modules/bluegrid/dist/bluegrid.min.css"&gt;</code> </li>
+    </ul>
+
+    <hr />
+
+    <h2>With Bower:</h2>
+    <ul class="instructions">
+      <li>In Bash:</li>
+      <li> <code class="language-bash"> $ bower install bluegrid </code> </li>
+      <li>Within your main sass file:</li>
+      <li> <code class="language-scss"> @import bower_comonents/bluegrid/bluegrid</code> </li>
+      <li><em>Optional:</em> You can also add the minified version directly to your HTML:</li>
+      <li> <code class="language-markup">&lt;link rel="stylesheet" type="text/css" href="bower_components/bluegrid/dist/bluegrid.min.css"&gt;</code> </li>
+    </ul>
+
+    <hr />
+
+    <h2>With Meteor</h2>
+    <ul class="instructions">
+      <li>In Bash:</li>
+      <li> <code class="language-bash"> $ meteor add colbycheeze:bluegrid </code> </li>
+      <li> <code class="language-bash"> $ meteor add fourseven:scss </code> </li>
+      <li>Within your main sass file:</li>
+      <li> <code class="language-scss"> @import {colbycheeze:bluegrid}/bluegrid</code> </li>
+    </ul>
+  </section>
+
+  <section class="examples" id="classes">
+
 
     <div class="container">
+      <div class="title-section">
+        <h1 class="title">Classes / Rapid prototyping</h1>
+      </div>
+      <p class="flow-text">Classes are included for rapidly prototyping and/or debugging layouts. This isn't the "semantic" way of building production websites, but it certainly helps to have them available.</p>
+      <br />
+      <p class="flow-text">Compiling of classes can be switched off in settings to save file size.</p>
+      <br />
+
+      <div class="row">
+        <div class="col">
+          <pre><code class="language-scss">
+// _variables.scss
+
+...
+
+$bluegrid-settings: (
+  'do-compile-classes': true,
+  ...
+);
+          </code></pre>
+        </div>
+      </div>
+
+
       <div class="row">
         <div class="col">
           <h1>Fluid and Responive</h1>
           <h3>By default, columns will grow to full grid width and stack. </br>
             Use responsive indicators to size into columns on various screen sizes. </br>
-            Use 'fit' to match columns to content size </h3>
+            Use 'fit' to match columns to content size. </br>
+            Use 'grow' fill remaining row space.
+          </h3>
         </div>
 
-        <div class="col"> <p>.col</p> </div>
+        <div class="col grow"> <p>.col grow</p> </div>
+        <div class="col fit grow-s"> <p>.col fit grow-s</p> </div>
+        <div class="col fit grow-m"> <p>.col fit grow-m</p> </div>
+        <div class="col fit grow-l"> <p>.col fit grow-l</p> </div>
+        <div class="col fit spacing"> <p>.col fit</p> </div>
+
         <div class="col spacing"> <p>.col</p> </div>
 
         <div class="col x5"> <p>.col x5</p> </div>
@@ -44,20 +133,8 @@
         <div class="col l3"> <p>.col l3</p> </div>
         <div class="col l3"> <p>.col l3</p> </div>
         <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3 spacing"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
 
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
-        <div class="col fit"> <p>.col fit</p> </div>
       </div>
 
       <div class="row">
@@ -248,6 +325,249 @@ $bluegrid-settings: (
     </div>
 
 
+  </section>
+
+  <section class="examples" id="mixins">
+
+
+    <div class="container">
+      <div class="title-section">
+        <h1 class="title">Mixins</h1>
+      </div>
+      <p class="flow-text">Bluegrid's API is powerful, while meeting <strong>your</strong> preferred way of speaking to become simple, clean, and intuitive.</p>
+      <br />
+
+      <h1>The Basics</h1>
+      <h3>Each set of columns is wrapped by a row. You may also think in terms of a flex wrapper for flex items</h3>
+
+
+      <div class="example-layout-wrapper dashed">
+
+      <div class="example-full">
+        <p class="row-label">.layout-wrapper</p>
+      </div>
+
+        <div class="example-content">
+          <div class="content-box">
+            .content
+          </div>
+        </div>
+
+        <div class="example-sidebar">
+          <div class="content-box">
+            .sidebar
+          </div>
+        </div>
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.layout-wrapper { @include row(); }
+
+.content { @include column(8); }
+.sidebar { @include column(4); }
+      </code></pre>
+
+      <h1>Flexible API</h1>
+      <h3>
+        Size your columns in whatever way <strong>makes sense</strong> to you. <br />
+        Numbers alone will assume the default number of grid units, but you can set your own. <br />
+        Percentages work as well.
+      </h3>
+      <div class="example-layout-wrapper">
+
+        <div class="example-three-col">
+          <div class="content-box">
+            .three-col
+          </div>
+        </div>
+
+        <div class="example-perc-25">
+          <div class="content-box">
+            .perc-25
+          </div>
+        </div>
+
+        <div class="example-one-of-4">
+          <div class="content-box">
+            .one-of-4
+          </div>
+        </div>
+
+        <div class="example-one-4">
+          <div class="content-box">
+            .one-4
+          </div>
+        </div>
+
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.three-col { @include column(3); }
+.perc-25 { @include column(25%); }
+.one-of-4 { @include column(1 of 4); }
+.one-4 { @include column(1 4); }
+      </code></pre>
+
+      <h1>Variable Column Sizes</h1>
+      <h3>
+        By default, a column alone stretches to fit the size of the wrapper (mobile first) </br>
+        Use fit to make columns match their content </br>
+        Use grow to make columns stretch as much as possible without exceeding a row.
+      </h3>
+
+      <div class="example-layout-wrapper">
+        <div class="example-default">
+          <div class="content-box">
+            .default
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="example-layout-wrapper">
+
+        <div class="example-fit">
+          <div class="content-box">
+            .fit
+          </div>
+        </div>
+
+        <div class="example-grow">
+          <div class="content-box">
+            .grow
+          </div>
+        </div>
+
+        <div class="example-three-col">
+          <div class="content-box">
+            .three-col
+          </div>
+        </div>
+
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.default { @include column(); }
+.fit { @include column(fit); }
+.grow { @include column(grow); }
+      </code></pre>
+
+      <h1>Align columns within rows</h1>
+      <h3>
+        With the power of bluegrid, it is easy to align content. </br>
+        Combine horizontal or vertical alignments in any order.
+      </h3>
+
+      <div class="example-wrapper-left dashed">
+
+        <div class="example-full">
+          <p class="row-label">.wrapper-left</p>
+        </div>
+
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="example-wrapper-center dashed">
+
+        <div class="example-full">
+          <p class="row-label">.wrapper-center</p>
+        </div>
+
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="example-wrapper-right dashed">
+
+        <div class="example-full">
+          <p class="row-label">.wrapper-right</p>
+        </div>
+
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-wrapper-around dashed">
+        <div class="example-full">
+          <p class="row-label">.wrapper-around</p>
+        </div>
+
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-wrapper-between dashed">
+        <div class="example-full">
+          <p class="row-label">.wrapper-between</p>
+        </div>
+
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+        <div class="example-three-col"> <div class="content-box"> </div> </div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-layout-wrapper dashed">
+        <div class="col s4">
+          <div class="example-tall-wrapper-top">
+            <div class="example-full">
+              <p class="row-label">.tall-wrapper-top</p>
+            </div>
+
+            <div class="example-default"> <div class="content-box"> </div> </div>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+        <div class="col s4">
+          <div class="example-tall-wrapper-middle">
+            <div class="example-full">
+              <p class="row-label">.tall-wrapper-middle</p>
+            </div>
+
+            <div class="example-default"> <div class="content-box"> </div> </div>
+          </div>
+
+          <div class="spacer"></div>
+        </div>
+
+        <div class="col s4">
+          <div class="example-tall-wrapper-bottom">
+            <div class="example-full">
+              <p class="row-label">.tall-wrapper-bottom</p>
+            </div>
+
+            <div class="example-default"> <div class="content-box"> </div> </div>
+          </div>
+        </div>
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.wrapper-left { @include row(left); }
+.wrapper-center { @include row(center); }
+.wrapper-right { @include row(right); }
+.wrapper-around { @include row(around); }
+.wrapper-between { @include row(between); }
+
+.tall-wrapper-top { @include row(top center); height: 125px; }
+.tall-wrapper-middle { @include row(center middle); height: 125px;  }
+.tall-wrapper-bottom { @include row(bottom center); height: 125px;  }
+      </code></pre>
+
+    </div>
   </section>
 
 </body>

@@ -6,6 +6,7 @@ $bluegrid-breakpoints: (
 );
 
 $bluegrid-settings: (
+  'do-compile-classes': false,
   // Default grid variables
   'num-cols': 12,
   'gutter-width': 1rem,

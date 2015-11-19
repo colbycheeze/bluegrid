@@ -7,6 +7,7 @@
   @return null;
 }
 
+
 @function _get-total-columns($span: $span) {
   @if length($span) == 3 {
     $total-columns: nth($span, 3);
@@ -22,8 +23,7 @@
 
 @function _get-col-percentage($columns, $total-columns) {
   @if (unit($columns) == "%") {
-    @return $columns
-
+    @return $columns;
   } @else {
     @return ((100 / ($total-columns / $columns)) + %);
   }

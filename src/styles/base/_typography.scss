@@ -27,7 +27,7 @@ html {
   }
 
   @media only screen and (min-width: $large-screen) {
-    font-size: $base-spacing * 1.2;
+    font-size: $base-spacing * 1.1;
   }
 }
 
@@ -50,6 +50,12 @@ h1, .title {
   font-size: $base-spacing * 2.2;
   line-height: $base-line-height * 1.1;
   font-weight: 300;
+}
+.title {
+  font-family: 'HelveticaNeue-Bold';
+  font-weight: 700;
+  color: color('primary');
+  font-size: $base-spacing * 2.8;
 }
 
 h2, .subtitle {
@@ -86,3 +92,10 @@ h6, .caption {
     font-size: $base-spacing;
   }
 }
+
+// code {
+//   border: 1px solid gray;
+//   border-radius: 5px;
+//   padding: 0.5rem;
+//   background: lightsalmon;
+// }

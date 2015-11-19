@@ -1,0 +1,46 @@
+// Add or remove breakpoints that will compile with classes here
+$bluegrid-breakpoints: (
+  'x': default,
+  's': 600px,
+  'm': 960px,
+  'l': 1140px
+);
+
+$bluegrid-settings: (
+  'do-compile-classes': true,
+
+  // Default grid variables
+  'num-cols': 12,
+  'gutter-width': 1rem,
+  'default-span': 100%, //This can be fit, grow, one unit (1), or fill whole row (100%)
+
+  // Defaults for content containers
+  'container-width': 1280px,
+  'container-padding': 1rem,
+
+  // ******** MIXIN TERMINOLOGY ********
+
+  // Used with @include row();
+  // Example: @include row(center bottom); -or- @include row(vcenter hcenter);
+
+  // Justify horizontally
+  'start': left start beginning justify-start,
+  'center': center hcenter justify-center,
+  'end': right end justify-end,
+  'around': around justify-around,
+  'between': between justify-between,
+
+  // Align vertically
+  'top': top align-start content-top,
+  'middle': middle vcenter align-center,
+  'bottom': bottom align-end content-bottom,
+
+  // Used with @include column();
+  // Example: @include column(fit); -or - @include column(expand);
+
+  'fit': fit match content 'match content',
+  'grow': grow stretch expand
+
+
+  // *****************************
+);

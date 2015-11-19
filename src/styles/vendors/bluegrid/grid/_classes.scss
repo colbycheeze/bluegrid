@@ -39,20 +39,14 @@
 }
 
 .container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: _bluegrid('container-padding');
-  padding-left: _bluegrid('container-padding');
+  @include container-fluid();
 }
 
 .container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: _bluegrid('container-padding');
-  padding-left: _bluegrid('container-padding');
-  width: 100%;
-  max-width: _bluegrid('container-width');
+  @include container();
 }
+
+@if _bluegrid('do-compile-classes') {
 
 .row {
   box-sizing: border-box;
@@ -91,6 +85,13 @@
         max-width: 100%;
       }
 
+      &.grow#{$-pfix} {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: auto;
+        max-width: 100%;
+      }
+
       $i: 1;
       @while $i <= _bluegrid('num-cols') {
         $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
@@ -112,4 +113,5 @@
       }
     }
   }
+}
 }
