@@ -15,6 +15,8 @@
 
   .content-box {
     background: color('primary');
+    border: 1px solid color('primary', 'dark');
+    border-radius: 2px;
     color: whitesmoke;
     width: 100%;
     padding: 1rem;
@@ -50,8 +52,40 @@
   .example-perc-25 { @include column(25%); }
   .example-one-of-4 { @include column(1 of 4); }
   .example-one-4 { @include column(1 4); }
+  .example-fixed-col { @include column(300px); }
   .example-default { @include column(); }
   .example-fit { @include column(fit); }
   .example-grow { @include column(grow); }
+
+  .example-offset-1 {
+    @include column(2);
+    @include offset(1);
+  }
+  .example-offset-1-right {
+    @include column(2);
+    @include offset(1, right);
+  }
+
+  .example-responsive-col {
+    @include column();
+
+    @include breakpoint(600px) { @include column(50%); }
+  }
+
+  .example-item-variable {
+    @include column(fit);
+    order: -1;
+    background: salmon;
+
+    @include breakpoint(600px) { order: 1; }
+    @include breakpoint(800px) { order: 2; }
+    @include breakpoint(900px) { order: 3; }
+    @include breakpoint(1000px) { order: 4; }
+  }
+
+  .example-item-one { @include column(grow); order: 0; }
+  .example-item-two { @include column(grow); order: 1; }
+  .example-item-three { @include column(grow); order: 2; }
+  .example-item-four { @include column(grow); order: 3; }
 
 }

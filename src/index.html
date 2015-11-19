@@ -1,8 +1,8 @@
 <head>
-  <title>Blue Grid Examples</title>
+  <title>BlueGrid Examples</title>
 
   <meta charset="utf-8">
-  <meta name="description" content="Blue Grid - A simple, customizable, responsive grid based on the flex property">
+  <meta name="description" content="BlueGrid - A simple, customizable, responsive grid based on the flex property">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, minimal-ui, maximum-scale=1, minimum-scale=1" />
 <link rel="stylesheet" href="css/main.css">
 <script src="js/prism.js"></script>
@@ -12,7 +12,7 @@
 <body>
   <section id="hero" class="row">
     <div class="col">
-      <h1>Welcome to Blue Grid!</h1>
+      <h1>Welcome to <span class="blue-title">Blue</span><span class="grid-title">Grid</span></h1>
       <h2>A simple, responsive, and customizable grid based on the <span class="flex">flex</span> property</h2>
     </div>
 
@@ -26,8 +26,8 @@
       <ul class="navbar">
         <!-- <li> <a class="btn" href="#">BlueGrid</a> </li> -->
         <li> <a class="btn" href="#getting-started">Getting Started</a> </li>
-        <li> <a class="btn" href="#classes">Classes</a> </li>
         <li> <a class="btn" href="#mixins">Mixins</a> </li>
+        <li> <a class="btn" href="#classes">Classes</a> </li>
       </ul>
     </div>
   </nav>
@@ -73,260 +73,6 @@
     </ul>
   </section>
 
-  <section class="examples" id="classes">
-
-
-    <div class="container">
-      <div class="title-section">
-        <h1 class="title">Classes / Rapid prototyping</h1>
-      </div>
-      <p class="flow-text">Classes are included for rapidly prototyping and/or debugging layouts. This isn't the "semantic" way of building production websites, but it certainly helps to have them available.</p>
-      <br />
-      <p class="flow-text">Compiling of classes can be switched off in settings to save file size.</p>
-      <br />
-
-      <div class="row">
-        <div class="col">
-          <pre><code class="language-scss">
-// _variables.scss
-
-...
-
-$bluegrid-settings: (
-  'do-compile-classes': true,
-  ...
-);
-          </code></pre>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col">
-          <h1>Fluid and Responive</h1>
-          <h3>By default, columns will grow to full grid width and stack. </br>
-            Use responsive indicators to size into columns on various screen sizes. </br>
-            Use 'fit' to match columns to content size. </br>
-            Use 'grow' fill remaining row space.
-          </h3>
-        </div>
-
-        <div class="col grow"> <p>.col grow</p> </div>
-        <div class="col fit grow-s"> <p>.col fit grow-s</p> </div>
-        <div class="col fit grow-m"> <p>.col fit grow-m</p> </div>
-        <div class="col fit grow-l"> <p>.col fit grow-l</p> </div>
-        <div class="col fit spacing"> <p>.col fit</p> </div>
-
-        <div class="col spacing"> <p>.col</p> </div>
-
-        <div class="col x5"> <p>.col x5</p> </div>
-        <div class="col x4"> <p>.col x4</p> </div>
-        <div class="col x3 spacing"> <p>.col x3</p> </div>
-
-        <div class="col s6"> <p>.col s6</p> </div>
-        <div class="col s6 spacing"> <p>.col s6</p> </div>
-
-        <div class="col m4"> <p>.col m4</p> </div>
-        <div class="col m4"> <p>.col m4</p> </div>
-        <div class="col m4 spacing"> <p>.col m4</p> </div>
-
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3"> <p>.col l3</p> </div>
-        <div class="col l3"> <p>.col l3</p> </div>
-
-      </div>
-
-      <div class="row">
-        <h1>Simple lightweight syntax</h1>
-        <h3>Wrap your grid with row and then add col to each child. </br>
-          Size columns by adding a screen size followed by a number. </br>
-          x = all screen sizes, s = small, m = medium, l = large </br>
-          Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
-
-        <pre class="col"><code class="language-markup">
-&lt;div class="container"&gt;<br />
-  &lt;div class="row"&gt;<br />
-    &lt;div class="col"&gt; Full Width column &lt;/div&gt;<br />
-    &lt;div class="col x6"&gt;6 columns on all screen sizes&lt;/div&gt;<br />
-    &lt;div class="col s6"&gt;6 columns on small and up&lt;/div&gt;<br />
-    &lt;div class="col m6"&gt;6 columns on medium and up&lt;/div&gt;<br />
-    &lt;div class="col l6"&gt;6 columns on large and up&lt;/div&gt;<br />
-    &lt;div class="col fit"&gt;Column will shrink to size of content&lt;/div&gt;<br />
-  &lt;/div&gt;<br />
-&lt;/div&gt;<br />
-        </code></pre>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <h1>Nesting</h1>
-          <h3>Go as deep as you like, it isn't a problem!</h3>
-        </div>
-
-        <div class="col m8">
-          <div class="base-nest">
-            <div class="row">
-
-              <div class="col x9">
-                <div class="parent-nest">
-                  <div class="row">
-                    <div class="col x4"><p>Whoa.</p> </div>
-                    <div class="col x8"><p>That's Deep!</p> </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col x3"><p>Hello!</p></div>
-
-            </div>
-          </div>
-        </div>
-        <div class="col m4"><p>.col m4</p></div>
-      </div>
-
-
-      <h1>Offsets</h1>
-      <h3>Easy Peasy Lemon Squeasy</h3>
-
-      <div class="row outline">
-        <div class="col x4 offset-1"><p>.col x4 offset-1</p></div>
-        <div class="col x4 offset-1 spacing"><p>.col x4 offset-1</p></div>
-        <div class="col x6 spacing"><p>.col x6</p></div>
-        <div class="col x3 offset-m6 spacing"><p>.col x3 offset-m6</p></div>
-        <div class="col x3 offset-l7 spacing"><p>.col x3 offset-l7</p></div>
-      </div>
-
-      <h1>Negative Margins</h1>
-      <h3>The columns will align properly to content outside of the grid</h3>
-      <div class="box"><p> I am an element that lives outside of the grid.  </p></div>
-
-      <div class="row outline">
-        <div class="col x4"> <p>.col x4</p> </div>
-        <div class="col x4"> <p>.col x4</p> </div>
-        <div class="col x4"> <p>.col x4</p> </div>
-      </div>
-
-      <h1>Column Spacing</h1>
-      <h3>Utilize Flexbox's powerful content spacing for your columns.</h3>
-
-      <div class="row-label">.row center</div>
-      <div class="row center outline">
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2 test"> <p>.col x2</p> </div>
-      </div>
-
-      <div class="row-label">.row end</div>
-      <div class="row end outline">
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-      </div>
-
-      <div class="row-label">.row around</div>
-      <div class="row around outline">
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-      </div>
-
-      <div class="row-label">.row between</div>
-      <div class="row between outline">
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-        <div class="col x2"> <p>.col x2</p> </div>
-      </div>
-
-
-      <h1>Column Positioning</h1>
-      <h3>One of the biggest pains with layouts is made simple with Blue Grid.
-        Add top, middle, or bottom to your row element</h3>
-      <p class="row-label">.row top</p>
-      <div class="row top center">
-        <div class="col x6 l4 last">
-          <img src="assets/images/fantasy_scene.jpg" alt="" />
-        </div>
-        <div class="col x6 l4"><p>.col x6 l4</p> </div>
-      </div>
-
-      <p class="row-label">.row middle</p>
-      <div class="row middle center">
-        <div class="col x6 l4">
-          <img src="assets/images/trex-boxing.jpg" alt="" />
-        </div>
-        <div class="col x6 l4"><p>.col x6 l4</p> </div>
-      </div>
-
-      <p class="row-label">.row bottom</p>
-      <div class="row bottom center">
-        <div class="col x6 l4 last">
-          <img src="assets/images/nyan-cat.png" alt="" />
-        </div>
-        <div class="col x6 l4"><p>.col x6 l4</p> </div>
-      </div>
-
-      <h1>Column Reordering</h1>
-      <h3>Need to quickly re-order columns? Just add the appropirate helper class.</h3>
-      <div class="row-label">.row reverse</div>
-      <div class="row reverse">
-        <div class="col x2"> <p>Col 1</p> </div>
-        <div class="col x2"> <p>Col 2</p> </div>
-        <div class="col x2"> <p>Col 3</p> </div>
-        <div class="col x2"> <p>Col 4</p> </div>
-        <div class="col x2"> <p>Col 5</p> </div>
-        <div class="col x2"> <p>Col 6</p> </div>
-      </div>
-
-      <div class="row">
-        <div class="col x3 center"> <p>1</p> </div>
-        <div class="col x3 center"> <p>2</p> </div>
-        <div class="col x3 center"> <p>3</p> </div>
-        <div class="col x3 first center"> <p>4   .first</p> </div>
-      </div>
-
-      <div class="row">
-        <div class="col x3 last center"> <p>1   .last</p> </div>
-        <div class="col x3 center"> <p>2</p> </div>
-        <div class="col x3 center"> <p>3</p> </div>
-        <div class="col x3 center"> <p>4</p> </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <h1>Customizable</h1>
-          <h3>Blue Grid is built in Sass, so feel free to override it's variables to fit the needs of your project!</h3>
-          <pre><code class="language-scss">
-// _variables.scss
-
-// Add, remove, or rename breakpoints here
-$bluegrid-breakpoints: (
-  'x': default,
-  's': 600px,
-  'm': 960px,
-  'l': 1140px
-);
-
-$bluegrid-settings: (
-  // Default grid variables
-  'num-cols': 12,
-  'gutter-width': 1rem,
-  'default-span': 100%, //This can be 'fit', or a unit (1), or fill whole row (100%)
-
-  // Defaults for content containers
-  'container-width': 1280px,
-  'container-padding': 1rem,
-
-  ...
-// Mixin related variables omitted ...
-);
-          </code></pre>
-        </div>
-      </div>
-    </div>
-
-
-  </section>
-
   <section class="examples" id="mixins">
 
 
@@ -343,9 +89,9 @@ $bluegrid-settings: (
 
       <div class="example-layout-wrapper dashed">
 
-      <div class="example-full">
-        <p class="row-label">.layout-wrapper</p>
-      </div>
+        <div class="example-full">
+          <p class="row-label">.layout-wrapper</p>
+        </div>
 
         <div class="example-content">
           <div class="content-box">
@@ -416,91 +162,55 @@ $bluegrid-settings: (
       </h3>
 
       <div class="example-layout-wrapper">
-        <div class="example-default">
-          <div class="content-box">
-            .default
-          </div>
-        </div>
+        <div class="example-default"> <div class="content-box"> .default </div> </div>
       </div>
 
       <div class="spacer"></div>
-
       <div class="example-layout-wrapper">
-
-        <div class="example-fit">
-          <div class="content-box">
-            .fit
-          </div>
-        </div>
-
-        <div class="example-grow">
-          <div class="content-box">
-            .grow
-          </div>
-        </div>
-
-        <div class="example-three-col">
-          <div class="content-box">
-            .three-col
-          </div>
-        </div>
-
+        <div class="example-fit"> <div class="content-box"> .fit </div> </div>
+        <div class="example-grow"> <div class="content-box"> .grow </div> </div>
+        <div class="example-fixed-col"> <div class="content-box"> .fixed-col </div> </div>
       </div>
 
       <pre class="example-code"><code class="language-scss">
 .default { @include column(); }
 .fit { @include column(fit); }
 .grow { @include column(grow); }
+.fixed-col { @include column(300px); }
       </code></pre>
 
       <h1>Align columns within rows</h1>
       <h3>
         With the power of bluegrid, it is easy to align content. </br>
-        Combine horizontal or vertical alignments in any order.
+      Combine horizontal or vertical alignments in any order.
       </h3>
 
       <div class="example-wrapper-left dashed">
-
-        <div class="example-full">
-          <p class="row-label">.wrapper-left</p>
-        </div>
+        <div class="example-full"> <p class="row-label">.wrapper-left</p> </div>
 
         <div class="example-three-col"> <div class="content-box"> </div> </div>
         <div class="example-three-col"> <div class="content-box"> </div> </div>
-
       </div>
 
       <div class="spacer"></div>
-
       <div class="example-wrapper-center dashed">
-
-        <div class="example-full">
-          <p class="row-label">.wrapper-center</p>
-        </div>
+        <div class="example-full"> <p class="row-label">.wrapper-center</p> </div>
 
         <div class="example-three-col"> <div class="content-box"> </div> </div>
         <div class="example-three-col"> <div class="content-box"> </div> </div>
-
       </div>
 
       <div class="spacer"></div>
-
       <div class="example-wrapper-right dashed">
-
-        <div class="example-full">
-          <p class="row-label">.wrapper-right</p>
-        </div>
+        <div class="example-full"> <p class="row-label">.wrapper-right</p> </div>
 
         <div class="example-three-col"> <div class="content-box"> </div> </div>
         <div class="example-three-col"> <div class="content-box"> </div> </div>
-
       </div>
 
       <div class="spacer"></div>
       <div class="example-wrapper-around dashed">
-        <div class="example-full">
-          <p class="row-label">.wrapper-around</p>
-        </div>
+        <div class="example-full"> <p class="row-label">.wrapper-around</p> </div>
 
         <div class="example-three-col"> <div class="content-box"> </div> </div>
         <div class="example-three-col"> <div class="content-box"> </div> </div>
@@ -509,9 +219,7 @@ $bluegrid-settings: (
 
       <div class="spacer"></div>
       <div class="example-wrapper-between dashed">
-        <div class="example-full">
-          <p class="row-label">.wrapper-between</p>
-        </div>
+        <div class="example-full"> <p class="row-label">.wrapper-between</p> </div>
 
         <div class="example-three-col"> <div class="content-box"> </div> </div>
         <div class="example-three-col"> <div class="content-box"> </div> </div>
@@ -556,18 +264,407 @@ $bluegrid-settings: (
       </div>
 
       <pre class="example-code"><code class="language-scss">
-.wrapper-left { @include row(left); }
+.wrapper-left { @include row(left); } // can be written as row();
 .wrapper-center { @include row(center); }
 .wrapper-right { @include row(right); }
 .wrapper-around { @include row(around); }
 .wrapper-between { @include row(between); }
 
-.tall-wrapper-top { @include row(top center); height: 125px; }
+.tall-wrapper-top { @include row(top center); height: 125px; } // can be written as row(center);
 .tall-wrapper-middle { @include row(center middle); height: 125px;  }
 .tall-wrapper-bottom { @include row(bottom center); height: 125px;  }
       </code></pre>
 
+      <h1>Use your preferred terminology</h1>
+      <h3>
+        Set terminology within the settings file.
+      </h3>
+
+      <pre class="example-code"><code class="language-scss">
+// ** Rows **
+// Justify horizontally
+'start': left start beginning justify-start,
+'center': center hcenter justify-center,
+'end': right end justify-end,
+'around': around justify-around,
+'between': between justify-between,
+
+// Align vertically
+'top': top align-start content-top,
+'middle': middle vcenter align-center,
+'bottom': bottom align-end content-bottom,
+
+// ** Columns **
+'fit': fit match content 'match content',
+'grow': grow stretch expand
+      </code></pre>
+
+      <h1>Offsets</h1>
+      <h3>
+        Offsets can be added easily, and work from the left or right.
+      </h3>
+
+      <div class="spacer"></div>
+      <div class="example-layout-wrapper">
+        <div class="example-full"> <p class="row-label">.wrapper-left</p> </div>
+
+        <div class="example-offset-1"> <div class="content-box"> .offset-1</div> </div>
+        <div class="example-offset-1"> <div class="content-box"> .offset-1</div> </div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-layout-wrapper">
+        <div class="example-offset-1-right"> <div class="content-box"> .offset-1-right</div> </div>
+        <div class="example-offset-1-right"> <div class="content-box"> .offset-1-right</div> </div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-wrapper-right">
+        <div class="example-full"> <p class="row-label">.wrapper-right</p> </div>
+
+        <div class="example-offset-1-right"> <div class="content-box"> .offset-1-right</div> </div>
+        <div class="example-offset-1-right"> <div class="content-box"> .offset-1-right</div> </div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="example-wrapper-right">
+        <div class="example-offset-1"> <div class="content-box"> .offset-1</div> </div>
+        <div class="example-offset-1"> <div class="content-box"> .offset-1</div> </div>
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.offset-1 {
+  @include column(2);
+  @include offset(1);
+}
+.offset-1-right {
+  @include column(2);
+  @include offset(1, right);
+}
+      </code></pre>
+
+      <h1>What about being responsive?</h1>
+      <h3>
+        This is a feature that should not be coupled with a grid system. </br>
+        Unlike classes, breakpoints are not included in BlueGrid mixins. </br>
+        I recommend using a powerful library such as <a href="http://breakpoint-sass.com/" target="_blank">Breakpoint</a>.      </h3>
+
+      <div class="spacer"></div>
+      <div class="example-layout-wrapper">
+        <div class="example-full"> <p class="row-label">.wrapper-left</p> </div>
+
+        <div class="example-responsive-col"> <div class="content-box"> 50% at 600px and up</div> </div>
+        <div class="example-responsive-col"> <div class="content-box"> 50% at 600px and up</div> </div>
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+@import 'vendors/breakpoint/breakpoint';
+@import 'vendors/bluegrid/bluegrid';
+
+.example-responsive-col {
+  @include column();
+
+  @include breakpoint(600px) {
+    @include column(50%);
+  }
+}
+      </code></pre>
+
+      <h1>Reordering content</h1>
+      <h3>
+        This is arguably one of the most powerful features of using flexbox for a grid. </br>
+        When combined with media queries the possibilities are limitless. </br>
+        Keep in mind that by default, all flex items are at order: 0 </br>
+        Resize to see the behavior below.
+      </h3>
+
+      <div class="spacer"></div>
+      <div class="example-layout-wrapper">
+
+        <div class="example-item-variable"> <div class="content-box">Watch me move</div> </div>
+        <div class="example-item-one"> <div class="content-box">.item-one</div> </div>
+        <div class="example-item-two"> <div class="content-box">.item-two</div> </div>
+        <div class="example-item-three"> <div class="content-box">.item-three</div> </div>
+        <div class="example-item-four"> <div class="content-box">.item-four</div> </div>
+      </div>
+
+      <pre class="example-code"><code class="language-scss">
+.item-variable {
+  @include column(fit);
+  order: -1;
+
+  @include breakpoint(600px) { order: 1; }
+  @include breakpoint(800px) { order: 2; }
+  @include breakpoint(900px) { order: 3; }
+  @include breakpoint(1000px) { order: 4; }
+}
+
+.item-one { @include column(grow); order: 0; }
+.item-two { @include column(grow); order: 1; }
+.item-three { @include column(grow); order: 2; }
+.item-four { @include column(grow); order: 3; }
+      </code></pre>
+
+
     </div>
   </section>
+
+  <section class="examples" id="classes">
+
+
+    <div class="container">
+      <div class="title-section">
+        <h1 class="title">Classes / Rapid prototyping</h1>
+      </div>
+      <p class="flow-text">Classes are included for rapidly prototyping and/or debugging layouts. This isn't the "semantic" way of building production websites, but it certainly helps to have them available.</p>
+      <br />
+      <p class="flow-text">Compiling of classes can be switched off in settings to save file size.</p>
+      <br />
+
+      <div class="row">
+        <div class="col">
+          <pre><code class="language-scss">
+// _variables.scss
+
+...
+
+$bluegrid-settings: (
+  'do-compile-classes': true,
+  ...
+);
+          </code></pre>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <h1>Fluid and Responive <small>(resize width to see changes)</small></h1>
+          <h3>By default, columns will grow to full grid width and stack. </br>
+            Use responsive indicators to size into columns on various screen sizes. </br>
+            Use 'fit' to match columns to content size. </br>
+            Use 'grow' fill remaining row space.
+          </h3>
+        </div>
+
+        <div class="col grow"> <p>.col grow</p> </div>
+        <div class="col fit grow-s"> <p>.col fit grow-s</p> </div>
+        <div class="col fit grow-m"> <p>.col fit grow-m</p> </div>
+        <div class="col fit grow-l"> <p>.col fit grow-l</p> </div>
+        <div class="col fit spacing"> <p>.col fit</p> </div>
+
+        <div class="col spacing"> <p>.col</p> </div>
+
+        <div class="col x5"> <p>.col x5</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x3 spacing"> <p>.col x3</p> </div>
+
+        <div class="col s6"> <p>.col s6</p> </div>
+        <div class="col s6 spacing"> <p>.col s6</p> </div>
+
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4"> <p>.col m4</p> </div>
+        <div class="col m4 spacing"> <p>.col m4</p> </div>
+
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+        <div class="col l3"> <p>.col l3</p> </div>
+
+      </div>
+
+      <h1>Simple lightweight syntax</h1>
+      <h3>Wrap your grid with row and then add col to each child. </br>
+        Size columns by adding a screen size followed by a number. </br>
+        x = all screen sizes, s = small, m = medium, l = large </br>
+        Optionally, you can wrap your row with the '.container' helper to keep content restrained.</h3>
+
+      <div class="row">
+
+        <pre class="col"><code class="language-markup">
+&lt;div class="container"&gt;<br />
+  &lt;div class="row"&gt;<br />
+    &lt;div class="col"&gt; Full Width column &lt;/div&gt;<br />
+    &lt;div class="col x6"&gt;6 columns on all screen sizes&lt;/div&gt;<br />
+    &lt;div class="col s6"&gt;6 columns on small and up&lt;/div&gt;<br />
+    &lt;div class="col m6"&gt;6 columns on medium and up&lt;/div&gt;<br />
+    &lt;div class="col l6"&gt;6 columns on large and up&lt;/div&gt;<br />
+    &lt;div class="col fit"&gt;Column will shrink to size of content&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+        </code></pre>
+      </div>
+
+      <h1>Offsets</h1>
+      <h3>Easy Peasy Lemon Squeasy</h3>
+
+      <div class="row outline">
+        <div class="col x4 offset-1"><p>.col x4 offset-1</p></div>
+        <div class="col x4 offset-1 spacing"><p>.col x4 offset-1</p></div>
+        <div class="col x6 spacing"><p>.col x6</p></div>
+        <div class="col x3 offset-m6 spacing"><p>.col x3 offset-m6</p></div>
+        <div class="col x3 offset-l7 spacing"><p>.col x3 offset-l7</p></div>
+      </div>
+
+      <h1>Horizontal Positioning</h1>
+      <h3>Utilize Flexbox's powerful content spacing for your columns.</h3>
+
+      <div class="row-label">.row center</div>
+      <div class="row center outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2 test"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row end</div>
+      <div class="row end outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row around</div>
+      <div class="row around outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+      <div class="row-label">.row between</div>
+      <div class="row between outline">
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+        <div class="col x2"> <p>.col x2</p> </div>
+      </div>
+
+
+      <h1>Vertical Positioning</h1>
+      <h3>One of the biggest pains with layouts is made simple with BlueGrid.
+        Add top, middle, or bottom to your row element</h3>
+      <p class="row-label">.row top</p>
+      <div class="row top center">
+        <div class="col x6 l4 last">
+          <img src="assets/images/fantasy_scene.jpg" alt="" />
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <p class="row-label">.row middle</p>
+      <div class="row middle center">
+        <div class="col x6 l4">
+          <img src="assets/images/trex-boxing.jpg" alt="" />
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <p class="row-label">.row bottom</p>
+      <div class="row bottom center">
+        <div class="col x6 l4 last">
+          <img src="assets/images/nyan-cat.png" alt="" />
+        </div>
+        <div class="col x6 l4"><p>.col x6 l4</p> </div>
+      </div>
+
+      <h1>Column Reordering</h1>
+      <h3>Need to quickly re-order columns? Just add the appropirate helper class.</h3>
+      <div class="row-label">.row reverse</div>
+      <div class="row reverse">
+        <div class="col x2"> <p>Col 1</p> </div>
+        <div class="col x2"> <p>Col 2</p> </div>
+        <div class="col x2"> <p>Col 3</p> </div>
+        <div class="col x2"> <p>Col 4</p> </div>
+        <div class="col x2"> <p>Col 5</p> </div>
+        <div class="col x2"> <p>Col 6</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col x3 center"> <p>1</p> </div>
+        <div class="col x3 center"> <p>2</p> </div>
+        <div class="col x3 center"> <p>3</p> </div>
+        <div class="col x3 first center"> <p>4   .first</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col x3 last center"> <p>1   .last</p> </div>
+        <div class="col x3 center"> <p>2</p> </div>
+        <div class="col x3 center"> <p>3</p> </div>
+        <div class="col x3 center"> <p>4</p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1>Nesting</h1>
+          <h3>Go as deep as you like, it isn't a problem!</h3>
+        </div>
+
+        <div class="col m8">
+          <div class="base-nest">
+            <div class="row">
+
+              <div class="col x9">
+                <div class="parent-nest">
+                  <div class="row">
+                    <div class="col x4"><p>Whoa.</p> </div>
+                    <div class="col x8"><p>That's Deep!</p> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col x3"><p>Hello!</p></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col m4"><p>.col m4</p></div>
+      </div>
+
+
+
+      <h1>Negative Margins</h1>
+      <h3>The columns will align properly to content outside of the grid</h3>
+      <div class="box"><p> I am an element that lives outside of the grid.  </p></div>
+
+      <div class="row outline">
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+        <div class="col x4"> <p>.col x4</p> </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <h1>Customizable</h1>
+          <h3>BlueGrid is built in Sass, so feel free to override it's variables to fit the needs of your project!</h3>
+          <pre><code class="language-scss">
+// _variables.scss
+
+// Add, remove, or rename breakpoints here
+$bluegrid-breakpoints: (
+  'x': default,
+  's': 600px,
+  'm': 960px,
+  'l': 1140px
+);
+
+$bluegrid-settings: (
+  // Default grid variables
+  'num-cols': 12,
+  'gutter-width': 1rem,
+  'default-span': 100%, //This can be 'fit', or a unit (1), or fill whole row (100%)
+
+  // Defaults for content containers
+  'container-width': 1280px,
+  'container-padding': 1rem,
+
+  ...
+// Mixin terminology omitted ...
+);
+          </code></pre>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
 
 </body>
