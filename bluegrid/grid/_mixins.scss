@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-@mixin container($max-width: _bluegrid('container-max-width'), $gutter: _bluegrid('gutter-width')) {
+@mixin container($max-width: _bluegrid('container-width'), $gutter: _bluegrid('gutter-width')) {
   margin-right: auto;
   margin-left: auto;
   padding-right: $gutter;
@@ -37,6 +37,7 @@
   box-sizing: border-box;
   padding: 0 (_bluegrid('gutter-width') / 2);
   flex-direction: $direction;
+  min-width: 0; // Firefox bug fix
 
   @if _params-do-match($span, _bluegrid('fit')) {
     flex-grow: 0;
@@ -44,12 +45,21 @@
     flex-basis: auto;
     width: auto;
     max-width: 100%;
+
   } @else if _params-do-match($span, _bluegrid('grow')) {
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: auto;
     width: auto;
     max-width: 100%;
+
+  } @else if _is-fixed($span) {
+    width: $span;
+    max-width: $span;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
   } @else {
     $columns: nth($span, 1);
     $total-columns: _get-total-columns($span);

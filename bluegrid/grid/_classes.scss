@@ -38,26 +38,15 @@
   &.last#{$size} { order: 1; }
 }
 
-@if _bluegrid('do-compile-classes') {
-  @debug: 'what';
-
-.container-fluid, .fluid-container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: _bluegrid('container-padding');
-  padding-left: _bluegrid('container-padding');
-  width: 100%;
-  max-width: 100%;
+.container-fluid {
+  @include container-fluid();
 }
 
 .container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: _bluegrid('container-padding');
-  padding-left: _bluegrid('container-padding');
-  width: 100%;
-  max-width: _bluegrid('container-width');
+  @include container();
 }
+
+@if _bluegrid('do-compile-classes') {
 
 .row {
   box-sizing: border-box;
@@ -77,6 +66,7 @@
   box-sizing: border-box;
   flex: 0 0 100%;
   padding: 0 (_bluegrid('gutter-width') / 2);
+  min-width: 0; // Fix for firefox bug
 }
 
 @each $label, $breakpoint in $bluegrid-breakpoints {
@@ -92,6 +82,13 @@
       &.fit#{$-pfix} {
         flex-grow: 0;
         flex-shrink: 1;
+        flex-basis: auto;
+        max-width: 100%;
+      }
+
+      &.grow#{$-pfix} {
+        flex-grow: 1;
+        flex-shrink: 0;
         flex-basis: auto;
         max-width: 100%;
       }

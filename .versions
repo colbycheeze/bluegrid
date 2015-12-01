@@ -3,7 +3,7 @@ babel-runtime@0.1.4
 base64@1.0.4
 caching-compiler@1.0.0
 check@1.1.0
-colbycheeze:bluegrid@0.3.0
+colbycheeze:bluegrid@0.3.1
 ecmascript@0.1.6
 ecmascript-runtime@0.2.6
 ejson@1.0.7
