@@ -1,6 +1,6 @@
 {
   "name": "bluegrid",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A simple, responsive, and customizable grid based on the flex property",
   "main": "sass/_bluegrid.scss",
   "scripts": {
