@@ -1,7 +1,7 @@
 Package.describe({
   name: 'colbycheeze:bluegrid',
   summary: 'A simple, responsive, and customizable grid based on the flex property',
-  version: '0.3.2',
+  version: '0.3.3',
   git: 'https://github.com/colbycheeze/bluegrid'
 });
 
