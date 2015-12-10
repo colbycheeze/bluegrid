@@ -95,7 +95,7 @@
 
       $i: 1;
       @while $i <= _bluegrid('num-cols') {
-        $perc: (100 / (_bluegrid('num-cols') / $i)) + 0%;
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
         &.#{$label}#{$i} {
           width: $perc;
           flex-basis: $perc;
@@ -106,7 +106,7 @@
 
       $i: 1;
       @while $i <= _bluegrid('num-cols') {
-        $perc: (100 / (_bluegrid('num-cols') / $i)) + 0%;
+        $perc: (100 / (_bluegrid('num-cols') / $i)) + %;
         &.offset-#{$pfix}#{$i} {
           margin-left: $perc;
         }

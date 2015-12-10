@@ -40,7 +40,7 @@ $FIXED-UNITS: px cm mm ch pica in em rem pt pc ex vw vh vmin vmax;
   @if (unit($columns) == "%") {
     @return $columns;
   } @else {
-    @return ((100 / ($total-columns / $columns)) + 0%);
+    @return ((100 / ($total-columns / $columns)) + %);
   }
 }
 
