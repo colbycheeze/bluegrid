@@ -1,10 +1,13 @@
 //TODO:
-// - Add source maps
+// - Add source maps to docs file
 
 // Release reminders
 // gulp docs - releases docs
-// gulp package - compiles usable code
-// gulp patch, feature, release - updates semver (you have to manually update meteor package)
+// 1. After any updates are made, commit and push live
+// 2. gulp package - compiles usable code
+// 3. gulp patch, feature, release - updates semver (you have to manually update meteor package)
+// 4. git push --tags
+// 5. npm publish and meteor publish
 
 import gulp from 'gulp';
 import del from 'del';
