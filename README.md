@@ -2,6 +2,7 @@
 ## A Simple, Responsive, and customizable grid based on the flex property.
 
 [View Docs / Examples Page](http://colbycheeze.github.io/bluegrid/)
+Learn the basics of Flexbox within a couple of minutes with this [fun game](http://flexboxfroggy.com/)
 
 ## Getting Started
 ##### With NPM:
