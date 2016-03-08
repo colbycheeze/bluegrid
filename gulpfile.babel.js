@@ -62,6 +62,10 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('compile', function(cb) {
+  // Move CNAME file over to build folder
+  gulp.src(`${dir.src}/CNAME`)
+  .pipe(gulp.dest(dir.dest));
+
   runSequence([
     'compile:html',
     'compile:images',
